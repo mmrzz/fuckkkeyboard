@@ -12,3 +12,6 @@ pub mod layout;
 pub mod sim;
 pub mod split;
 pub mod trigger;
+
+pub use key::{KeyCode, KeyPress, Modifiers};
+pub use layout::{render, Layout, LayoutId};
