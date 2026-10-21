@@ -7,3 +7,5 @@ license.workspace = true
 [dependencies]
 thiserror = "2.0.21"
 
+[dev-dependencies]
+lf-layouts.workspace = true
