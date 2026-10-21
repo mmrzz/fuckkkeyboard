@@ -163,6 +163,11 @@ impl Engine {
         }
     }
 
+    /// The engine's settings.
+    pub fn config(&self) -> &Config {
+        &self.config
+    }
+
     /// The layout the engine believes is active.
     pub fn current_layout(&self) -> &LayoutId {
         &self.current
