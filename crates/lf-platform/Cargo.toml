@@ -6,3 +6,4 @@ license.workspace = true
 
 [dependencies]
 lf-core.workspace = true
+thiserror = "2.0.21"

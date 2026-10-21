@@ -139,6 +139,7 @@ name = "lf-platform"
 version = "0.1.0"
 dependencies = [
  "lf-core",
+ "thiserror",
 ]
 
 [[package]]
