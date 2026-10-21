@@ -3,5 +3,9 @@
 #![warn(missing_docs)]
 
 pub mod alphabet;
+pub mod format;
+pub mod model;
 
 pub use alphabet::Language;
+pub use format::ModelError;
+pub use model::LanguageModel;
