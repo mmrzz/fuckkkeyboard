@@ -64,7 +64,7 @@ pub fn is_word_break(k: &KeyPress) -> bool {
 
 /// Split `keys` into words (maximal runs of non-break keys) and render each
 /// under `from` and `to`.
-pub fn split_words(keys: &[KeyPress], from: &Layout, to: &Layout) -> Vec<WordView> {
+pub fn build_words(keys: &[KeyPress], from: &Layout, to: &Layout) -> Vec<WordView> {
     let mut words = Vec::new();
     let mut start = None;
     for (i, k) in keys.iter().enumerate() {
@@ -147,7 +147,7 @@ mod tests {
     }
 
     fn spans(spec: &str) -> Vec<(usize, usize)> {
-        split_words(&keys(spec), &from(), &to())
+        build_words(&keys(spec), &from(), &to())
             .iter()
             .map(|w| (w.start, w.end))
             .collect()
@@ -164,7 +164,7 @@ mod tests {
     #[test]
     fn shift_space_is_not_a_break() {
         assert_eq!(spans("ab^ba"), vec![(0, 5)]);
-        let words = split_words(&keys("a^b a"), &from(), &to());
+        let words = build_words(&keys("a^b a"), &from(), &to());
         assert_eq!(words[0].text_from, "a b");
         assert_eq!(words[0].text_to, "x\u{200C}y");
         assert_eq!(words[1].text_to, "x");
@@ -173,7 +173,7 @@ mod tests {
     #[test]
     fn scorers() {
         let (f, t) = (from(), to());
-        let words = split_words(&keys("ab b a"), &f, &t);
+        let words = build_words(&keys("ab b a"), &f, &t);
         let c = Candidate {
             words: &words,
             from: &f,

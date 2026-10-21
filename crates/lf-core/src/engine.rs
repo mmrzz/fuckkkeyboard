@@ -8,7 +8,7 @@ use crate::buffer::KeyBuffer;
 use crate::event::InputEvent;
 use crate::key::KeyPress;
 use crate::layout::{render, Layout, LayoutId};
-use crate::split::{split_words, Candidate, SplitScorer};
+use crate::split::{build_words, Candidate, SplitScorer};
 use crate::trigger::Trigger;
 
 /// Engine settings.
@@ -241,7 +241,7 @@ impl Engine {
 
         let from = &self.layouts[self.layout_index(&from_id)];
         let to = &self.layouts[self.layout_index(&to_id)];
-        let words = split_words(&range, from, to);
+        let words = build_words(&range, from, to);
         let candidate = Candidate {
             words: &words,
             from,
