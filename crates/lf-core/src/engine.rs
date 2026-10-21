@@ -65,7 +65,6 @@ pub enum EngineError {
 
 /// What is needed to undo the last fix.
 #[derive(Debug)]
-#[expect(dead_code, reason = "read by undo, added in the next task")]
 struct UndoRecord {
     /// The suffix keys as they were before the fix.
     original_keys: Vec<KeyPress>,
@@ -73,6 +72,9 @@ struct UndoRecord {
     /// Number of converted keys now at the end of the buffer.
     replaced_len: usize,
     at_ms: u64,
+    /// How many trigger keys, in order, have been typed since the fix.
+    /// Any other key drops the record.
+    trigger_progress: usize,
 }
 
 /// Turns input events into correction commands.
@@ -124,13 +126,25 @@ impl Engine {
         }
         match ev {
             InputEvent::Key(k) => {
+                // Keys typed after a fix keep the undo record only while they
+                // spell the start of the trigger.
+                match &mut self.undo {
+                    Some(u) if self.config.trigger.key_matches(u.trigger_progress, &k) => {
+                        u.trigger_progress += 1;
+                    }
+                    _ => self.undo = None,
+                }
                 self.buffer.push(k);
                 self.last_key_ms = now_ms;
-                if self.config.trigger.matches_tail(&self.buffer) {
-                    return self.fix(now_ms);
+                if !self.config.trigger.matches_tail(&self.buffer) {
+                    return Vec::new();
                 }
-                self.undo = None;
-                Vec::new()
+                match self.undo.take() {
+                    Some(u) if now_ms.saturating_sub(u.at_ms) <= self.config.undo_window_ms => {
+                        self.undo_fix(u)
+                    }
+                    _ => self.fix(now_ms),
+                }
             }
             InputEvent::Backspace => {
                 self.buffer.backspace();
@@ -194,7 +208,6 @@ impl Engine {
 
     /// Section 6.2: convert the wrong-layout suffix to the other layout.
     fn fix(&mut self, now_ms: u64) -> Vec<Command> {
-        self.undo = None;
         let trigger_chars = self.pop_trigger();
 
         // A layout outside the pair (e.g. the user switched to a third one)
@@ -262,7 +275,27 @@ impl Engine {
             original_keys: suffix,
             from: from_id,
             at_ms: now_ms,
+            trigger_progress: 0,
         });
+        cmds
+    }
+
+    /// Section 6.3: put back the text the last fix replaced.
+    fn undo_fix(&mut self, undo: UndoRecord) -> Vec<Command> {
+        let trigger_chars = self.pop_trigger();
+        let converted = self.buffer.pop_tail(undo.replaced_len);
+        let replaced_chars = converted.iter().filter(|k| k.produced.is_some()).count();
+        let from = &self.layouts[self.layout_index(&undo.from)];
+
+        let mut cmds = vec![Command::Replace {
+            backspaces: replaced_chars + trigger_chars,
+            text: render(&undo.original_keys, from),
+        }];
+        if self.config.switch_layout_after_fix {
+            cmds.push(Command::SetLayout(undo.from.clone()));
+            self.current = undo.from;
+        }
+        self.buffer.extend(undo.original_keys);
         cmds
     }
 }
@@ -448,6 +481,96 @@ mod tests {
         }
         assert!(cmds.is_empty());
         assert_eq!(e.buffer_len(), 2);
+    }
+
+    #[test]
+    fn second_trigger_undoes() {
+        let mut e = engine(Box::new(LastWordScorer));
+        let mut t = 0;
+        type_text(&mut e, "ab ab", &mut t);
+        type_text(&mut e, "fuckkk", &mut t);
+        let cmds = type_text(&mut e, "фуцккк", &mut t);
+        assert_eq!(
+            cmds,
+            vec![replace(8, "ab"), Command::SetLayout(LayoutId::new("lat"))]
+        );
+        assert!(!e.has_undo_record());
+        let restored: Vec<_> = e
+            .buffer
+            .iter()
+            .map(|k| (k.produced, k.layout.as_str()))
+            .collect();
+        assert_eq!(restored.len(), 5);
+        assert!(restored.iter().all(|&(_, l)| l == "lat"));
+        // A third trigger right after an undo is a normal fix.
+        let cmds = type_text(&mut e, "fuckkk", &mut t);
+        assert_eq!(cmds[0], replace(8, "аб"));
+        assert!(e.has_undo_record());
+    }
+
+    #[test]
+    fn undo_window_expired_is_normal_fix() {
+        let mut e = engine(Box::new(LastWordScorer));
+        let mut t = 0;
+        type_text(&mut e, "ab", &mut t);
+        type_text(&mut e, "fuckkk", &mut t);
+        t += 10_000;
+        let cmds = type_text(&mut e, "фуцккк", &mut t);
+        assert_eq!(cmds[0], replace(8, "ab"));
+        // A fix leaves a fresh undo record; an undo would have dropped it.
+        assert!(e.has_undo_record());
+    }
+
+    #[test]
+    fn undo_window_is_inclusive() {
+        let mut e = engine(Box::new(LastWordScorer));
+        let mut t = 0;
+        type_text(&mut e, "ab", &mut t);
+        type_text(&mut e, "fuckkk", &mut t);
+        t += 10_000 - 300;
+        type_text(&mut e, "фуцккк", &mut t);
+        assert!(!e.has_undo_record());
+    }
+
+    #[test]
+    fn other_key_or_event_drops_undo_record() {
+        let other_key = InputEvent::Key(KeyPress {
+            code: KeyCode::KeyA,
+            mods: Modifiers::NONE,
+            layout: LayoutId::new("cyr"),
+            produced: Some('а'),
+        });
+        for interrupt in [
+            other_key,
+            InputEvent::Backspace,
+            InputEvent::LayoutChanged(LayoutId::new("cyr")),
+        ] {
+            let mut e = engine(Box::new(LastWordScorer));
+            let mut t = 0;
+            type_text(&mut e, "ab", &mut t);
+            type_text(&mut e, "fuckkk", &mut t);
+            type_text(&mut e, "фу", &mut t);
+            e.handle(interrupt, t);
+            assert!(!e.has_undo_record());
+        }
+    }
+
+    #[test]
+    fn partial_trigger_keeps_undo_record() {
+        let mut e = engine(Box::new(LastWordScorer));
+        let mut t = 0;
+        type_text(&mut e, "ab", &mut t);
+        type_text(&mut e, "fuckkk", &mut t);
+        type_text(&mut e, "фуцкк", &mut t);
+        assert!(e.has_undo_record());
+        // A stray key before the trigger drops the record, so the trigger
+        // that follows is a fix (which leaves a new record), not an undo.
+        let mut e = engine(Box::new(AllWordsScorer));
+        let mut t = 0;
+        type_text(&mut e, "ab", &mut t);
+        type_text(&mut e, "fuckkk", &mut t);
+        type_text(&mut e, "кфуцккк", &mut t);
+        assert!(e.has_undo_record());
     }
 
     #[test]
