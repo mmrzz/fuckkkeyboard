@@ -1,0 +1,25 @@
+1	The weather is nice today and we are going to the park.
+2	I am at work right now, I will call you later.
+3	Thanks for the meeting this morning, it was very useful.
+4	Can you send me the report before the end of the day?
+5	We need to deploy the new version of the app tonight.
+6	She said that the train was late again this week.
+7	My brother lives in a small town near the sea.
+8	Please check your email when you have a moment.
+9	The children were playing in the garden after school.
+10	It is important to drink enough water every day.
+11	He bought a new car last month and loves driving it.
+12	The meeting has been moved to Thursday afternoon.
+13	I don't think we can finish the project on time.
+14	They are planning a trip to the mountains next summer.
+15	Short.
+16	The weather is nice today and we are going to the park.
+17	این جمله فارسی است و نباید در انگلیسی بماند
+18	What time does the store open on Sunday morning?
+19	Our team won the game by two points last night.
+20	Could you help me move the table into the kitchen?
+21	The price of bread has gone up again this year.
+22	We should talk about this before the next meeting.
+23	Reading books every night helps me fall asleep.
+24	There is a lot of traffic on the main road today.
+25	I will be there in ten minutes, wait for me.
