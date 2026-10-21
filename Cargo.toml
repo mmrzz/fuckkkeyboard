@@ -9,4 +9,5 @@ license = "MIT"
 
 [workspace.dependencies]
 lf-core = { path = "crates/lf-core" }
+lf-lang = { path = "crates/lf-lang" }
 lf-layouts = { path = "crates/lf-layouts" }

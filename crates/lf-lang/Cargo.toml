@@ -1,0 +1,9 @@
+[package]
+name = "lf-lang"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+lf-core.workspace = true
+thiserror = "2.0.21"
