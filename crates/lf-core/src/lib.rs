@@ -17,3 +17,4 @@ pub use buffer::{KeyBuffer, BUFFER_CAPACITY};
 pub use event::{InputEvent, ResetReason};
 pub use key::{KeyCode, KeyPress, Modifiers};
 pub use layout::{render, Layout, LayoutId};
+pub use trigger::{Trigger, TriggerError};
