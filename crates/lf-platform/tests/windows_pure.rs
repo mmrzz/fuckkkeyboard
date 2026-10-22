@@ -9,3 +9,7 @@
 #[allow(dead_code)]
 #[path = "../src/windows/keymap.rs"]
 mod keymap;
+
+#[allow(dead_code)]
+#[path = "../src/windows/translate.rs"]
+mod translate;
