@@ -29,13 +29,24 @@ cargo run -p lf-cli -- simulate --layout us "sghl{trigger}"
 # SetLayout("ir")
 # screen: "سلام"   layout: ir
 
-cargo run -p lf-cli -- simulate --layout us --scorer all "sghl n,sj lk{trigger}"
+cargo run -p lf-cli -- simulate --layout us "I'm at work nhvl ldhl{trigger}"
+# screen: "I'm at work دارم میام"   layout: ir
+
+cargo run -p lf-cli -- score --layout us "I'm at work nhvl ldhl"
+# word    as-typed  rendered  LLR
+# 0       I'm       ّگپ       -8.3
+# ...
+# 3       nhvl      دارم      33.8
+# 4       ldhl      میام      21.8
+# split at word 3 → "I'm at work دارم میام"
+
 cargo run -p lf-cli -- keys --layout ir "سلام"
 # KeyS KeyG KeyH KeyL
 ```
 
-`--scorer last` (default) converts only the last word, and `--scorer all`
-converts everything typed since the last layout switch.
+`--scorer ngram` (default) finds where the wrong-layout text starts using the
+embedded character models, `--scorer last` converts only the last word, and
+`--scorer all` converts everything typed since the last layout switch.
 
 Script syntax: plain characters are typed using the current layout. Tokens:
 `{bs}` backspace, `{click}` mouse click, `{chord}` Ctrl shortcut, `{enter}`
