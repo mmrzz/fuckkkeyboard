@@ -4,8 +4,10 @@ use std::fs;
 use std::path::Path;
 use std::time::{Duration, Instant};
 
-use lf_core::{build_words, render, Candidate, KeyPress, LastWordScorer, Layout, SplitScorer};
-use lf_lang::Language;
+use lf_core::{
+    build_words, render, Candidate, KeyPress, LastWordScorer, Layout, LayoutId, SplitScorer,
+};
+use lf_lang::{Language, LanguageModel, NgramScorer};
 use rand::rngs::StdRng;
 use rand::{Rng, SeedableRng};
 
@@ -132,9 +134,9 @@ pub fn generate_cases(
         let k = rng.random_range(0..=4usize);
         let s = rng.random_range(1..=6usize);
 
-        let prefix_sentence = &pools[a][rng.random_range(0..pools[a].len())];
+        let prefix_sentence = as_typed(SIDES[a].0, &pools[a][rng.random_range(0..pools[a].len())]);
         let prefix: Vec<&str> = prefix_sentence.split_whitespace().take(k).collect();
-        let suffix_sentence = &pools[b][rng.random_range(0..pools[b].len())];
+        let suffix_sentence = as_typed(SIDES[b].0, &pools[b][rng.random_range(0..pools[b].len())]);
         let words: Vec<&str> = suffix_sentence.split_whitespace().collect();
         if prefix.len() < k || words.len() < s {
             continue;
@@ -175,6 +177,18 @@ pub fn generate_cases(
         });
     }
     Ok(cases)
+}
+
+/// Text as a user of the language's layout types it. Persian corpora often
+/// use Arabic yeh and kaf, which Persian Standard puts on Shift+D and Shift+Z;
+/// people type the Persian letters on the plain keys instead.
+fn as_typed(lang: Language, sentence: &str) -> String {
+    match lang {
+        Language::En => sentence.to_owned(),
+        Language::Fa => sentence
+            .replace('\u{064A}', "\u{06CC}")
+            .replace('\u{0643}', "\u{06A9}"),
+    }
 }
 
 /// Parse a cases file. `hard` files have two more columns: must, note.
@@ -237,6 +251,21 @@ pub fn run_case(c: &Case, scorer: &dyn SplitScorer) -> Result<Outcome, String> {
     })
 }
 
+/// An n-gram scorer from `dir/en.lfng` and `dir/fa.lfng`.
+fn load_scorer(dir: &Path) -> Result<NgramScorer, String> {
+    let models = SIDES
+        .iter()
+        .map(|&(lang, layout)| {
+            let path = dir.join(format!("{}.lfng", lang.code()));
+            let bytes = fs::read(&path).map_err(|e| format!("{}: {e}", path.display()))?;
+            let m = LanguageModel::from_bytes(&bytes)
+                .map_err(|e| format!("{}: {e}", path.display()))?;
+            Ok((LayoutId::new(layout), m))
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    Ok(NgramScorer::new(models))
+}
+
 #[derive(Default, Clone, Copy)]
 struct Tally {
     ok: usize,
@@ -267,10 +296,20 @@ impl Tally {
 }
 
 /// `lf-train bench`: print the report; Err if the gate is not met.
-pub fn run(cases: &Path, hard: &Path, kind: ScorerKind) -> Result<(), String> {
-    let scorer: Box<dyn SplitScorer> = match kind {
-        ScorerKind::Ngram => Box::new(lf_lang::default_scorer()),
-        ScorerKind::Last => Box::new(LastWordScorer),
+///
+/// `models` is a folder with `en.lfng` and `fa.lfng` to use instead of the
+/// embedded ones.
+pub fn run(
+    cases: &Path,
+    hard: &Path,
+    kind: ScorerKind,
+    models: Option<&Path>,
+    show_failures: usize,
+) -> Result<(), String> {
+    let scorer: Box<dyn SplitScorer> = match (kind, models) {
+        (ScorerKind::Ngram, None) => Box::new(lf_lang::default_scorer()),
+        (ScorerKind::Ngram, Some(dir)) => Box::new(load_scorer(dir)?),
+        (ScorerKind::Last, _) => Box::new(LastWordScorer),
     };
     let cases = load_cases(cases, false)?;
     if cases.is_empty() {
@@ -281,9 +320,17 @@ pub fn run(cases: &Path, hard: &Path, kind: ScorerKind) -> Result<(), String> {
     let mut by_k = [Tally::default(); 5];
     let mut by_s = [Tally::default(); 3];
     let mut time = Duration::ZERO;
+    let mut shown = 0;
     for c in &cases {
         let o = run_case(c, scorer.as_ref())?;
         let ok = o.got == Some(c.expected);
+        if !ok && shown < show_failures {
+            shown += 1;
+            println!(
+                "  miss {} {:?}: expected {}, got {:?}",
+                c.layout_from, c.typed, c.expected, o.got
+            );
+        }
         time += o.time;
         all.add(ok);
         if c.layout_from == "us" {
@@ -413,6 +460,12 @@ mod tests {
         }
         // The suffix shows up rendered: "میام" typed on us is "ldhl".
         assert!(a.iter().any(|c| c.typed.contains("ldhl")));
+    }
+
+    #[test]
+    fn persian_is_typed_with_persian_yeh_and_kaf() {
+        assert_eq!(as_typed(Language::Fa, "علي كتاب"), "علی کتاب");
+        assert_eq!(as_typed(Language::En, "Ali"), "Ali");
     }
 
     #[test]

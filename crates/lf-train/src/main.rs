@@ -91,6 +91,12 @@ enum Cmd {
         /// Scorer to benchmark.
         #[arg(long, value_enum, default_value_t = bench::ScorerKind::Ngram)]
         scorer: bench::ScorerKind,
+        /// Folder with en.lfng and fa.lfng to use instead of the embedded models.
+        #[arg(long)]
+        models: Option<PathBuf>,
+        /// Print the first N synthetic cases the scorer gets wrong.
+        #[arg(long, default_value_t = 0)]
+        failures: usize,
     },
     /// Print a model's header, table sizes and top contexts.
     Inspect {
@@ -140,7 +146,9 @@ fn main() -> ExitCode {
             cases,
             hard,
             scorer,
-        } => bench::run(&cases, &hard, scorer),
+            models,
+            failures,
+        } => bench::run(&cases, &hard, scorer, models.as_deref(), failures),
         Cmd::Inspect { model } => train::inspect(&model),
     };
     match result {

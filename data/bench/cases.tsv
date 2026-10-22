@@ -1,10 +1,10 @@
 # layout_from	typed_text	expected_index
 us	Iowa communications n,vhk mdadk	2
-us	The Dons were pln hgiD&	3
+us	The Dons were pln hgid&	3
 ir	اگر شذهمهفغ فخ پشنث اثق ذهللثق	1
 ir	وی غخعدل حثخحمث هد فاخسث	1
-us	hc xvDr lah,vi& fijvDk	0
-us	Police also hknDai jh Hk[h fhgkni& , tvn&	2
+us	hc xvdr lah,vi& fijvdk	0
+us	Police also hkndai jh Hk[h fhgkni& , tvn&	2
 ir	در حشقف خب فاث زخپپعدهزشفهخدس	1
 ir	دهقان کیا مثسس فاشد	2
 us	In San Diego, California, nv tri pktdih nhvdl	4
@@ -32,13 +32,13 @@ ir	حقهزث خب فاث بخخیو	0
 ir	در ایران ساث سعللثسفثی	2
 us	Everyone (except, perhaps, outdoorsy v,d k,j&	4
 us	The Goa nv lvfdhk ck , lvn	2
-us	This Saturday is your knhvDlK.	4
+us	This Saturday is your knhvdlK.	4
 us	nv hdk ;shk hsj.	0
 ir	فاثهق خصد سعححمهثس فخ فاث ثرثدف.	0
 us	The L	1
 us	And nationally, anxieties nvphgd hsj	3
 ir	نقد معزنغ	1
-us	Permissions hlh nv [hDD Zi	1
+us	Permissions hlh nv [hdd ;i	1
 ir	فاصله دو غخعق حثخحمث فخ مخذذغ	2
 ir	شرحشوق اما بهجز هس فخ هدزقثشسث فخعقهسپگس	3
 us	;ajd	0
@@ -67,7 +67,7 @@ ir	صشمنهدل سفثح ذغ	0
 us	The event has fiaj& nsj ld	3
 ir	نمیتوان به یک انسان، أخیهرش زاخزخمشفث هس	4
 ir	در صورت لقشیعشفث-مثرثم زخعقسثس فخ ضعشمهبهثی	2
-us	Also, Z,]Zjv fhue	1
+us	Also, ;,];jv fhue	1
 ir	در نبرد إقخپ مشفث	2
 us	As president nsjvsd fi ;hgdtvkdh	2
 us	During the hc lah,vhk Hdnhkdj,	2
@@ -100,7 +100,7 @@ ir	آزمون ویژه مداحان فاث زخقدثقو یثمهرثقثی ش 
 us	The bill adldjc; d;	2
 us	According to gup qv,vj	3
 ir	همان سالی فاث	2
-us	ihD lhgD	0
+us	ihd lhgd	0
 ir	آموزش فاث يثپخزقشف [شقفغگس	1
 ir	ش ذخعمیثق-سفقثصد مثیلث	0
 us	Their spokesperson, Mudoch 16	3
@@ -138,10 +138,10 @@ us	The kale farmer's kani	3
 ir	وی افزود: قهرمانی تیم ئلف. آخذثقف ژشححس هدبخقپثی	4
 us	af;i juh,kdih , hjphndiihd	0
 us	This hkjwhf ;vnhk fi	1
-ir	علاوه بر تعطيلات رسمي مهلاف	4
+ir	علاوه بر تعطیلات رسمی مهلاف	4
 ir	ّد فاث	0
 us	Not mca;d fhdn ,qudj fdlhv vh ;hlghR	1
-ir	براي مثال، خدث.	2
+ir	برای مثال، خدث.	2
 ir	هر یک از این ئاشذثممث قثلهخد ذشقثمغ	4
 ir	سفعیثدفس شدی ۱۰و۰۰۰ سفشبب پثپذثقس	0
 us	But the jkih ]kn wkngd	2
@@ -169,7 +169,7 @@ ir	پس از این اتفاق، فاث زشدیهیشفثگس بشدس حقخع
 ir	در جنوب شرقی ءخیخز إثذ. ۱۷ فخ قخعدی خعف	3
 ir	قسمت غرب فخ زشمم ئهقهمخ أشقزهشو ش زخممهسهخد	2
 us	Just hd hc	1
-us	The registration deadline h[jlhuD ,	3
+us	The registration deadline h[jlhud ,	3
 ir	ُخعقهسپ )ًٍيُُ( اخسحهفشمهفغ فقشهدهدل	0
 ir	رابعاً: شزفهخد بمهزن ذثلهدس صهفا فاث صشققهدل	1
 us	It's not putting lpw,g [hkfd jsgx svlhdi hsj fv	3
@@ -186,7 +186,7 @@ ir	اینتر و مورینیو در شقث دخف	4
 ir	۱۱ سثث فاهس	1
 us	The project lpw,g Hl,ca k,ajk	2
 us	He never fhue ntu Hf hc fnk ld	2
-us	Thankfully, an fcv' jv nDni	2
+us	Thankfully, an fcv' jv ndni	2
 ir	وی کارکردی شبیه به فخ ﷼۹۴.	4
 ir	و زقثشفثس ش صاخمث دثص زاشممثدلث.	1
 us	Visitation is one lvnl kihn l,htr kf,nkn	3
@@ -201,7 +201,7 @@ us	A state government taskforce a,n& ;lhHk;i ;jf	4
 us	The ludhv j,gdn	1
 ir	به )۲( لهرثس فاث ژخپپهسسهخد فاث حخصثق	1
 ir	خلاصه داستان:شهدخت [شف	2
-ir	مديرعامل بانک خب ئژ] شففثدفهخدو	2
+ir	مدیرعامل بانک خب ئژ] شففثدفهخدو	2
 ir	جهت جنگ با ثشقدثی	3
 ir	استاد خب فاهس نهدی خب	1
 ir	این در حالی ۱۳ سفشفثس فاشف قثزثدفمغ قثزثهرثی بثیثقشم	3
@@ -220,7 +220,7 @@ ir	در سحاثقثس شدی ثدزخعدفثقهدل	1
 ir	بنابراین ما می سشمثس صثقث بخقثزشسف	3
 ir	این منطقه از فاهس ثطثقزهسث صثگقث صخقنهدل	3
 ir	صخعمی شرخهی	0
-ir	بررسي مديريت هاي مختلف هدیثثی	4
+ir	بررسی مدیریت های مختلف هدیثثی	4
 ir	خیلی از خد فاث أثخقلث [قهزث آهلاصشغ.	2
 us	It is iv v,c hc shuj	2
 ir	در فاث پهسسهخد	1
@@ -228,7 +228,7 @@ ir	، هم او حخسسهذمث	3
 us	"The fh ng	1
 us	NBA season is in ;i fj,hkn lhku hc lxvp	4
 us	nv p,ci o,n ld;,an nsj	0
-ir	پيش سعححخقف بخق فاث پخرث.	1
+ir	پیش سعححخقف بخق فاث پخرث.	1
 us	klhda hofhv fv]sf	0
 us	However, fhan jv;df Hgd khl nhvn& iv]kn&	1
 ir	به عبارتی راش رثقلث خب نهزنسفشقفهدل	3
@@ -287,7 +287,7 @@ us	The fhue oal lsglhkhk	1
 ir	سم مار دریایی از ُاث	4
 ir	را به خاک ٔخقفا ئاخقث فخ-لخ سحخف سفشغس خد	3
 ir	بنابراین پشقنثف ساشقث یعقهدل فاث	1
-us	Maybe you Hl,caD kDc	2
+us	Maybe you Hl,cad kdc	2
 us	hk[hl ani f,n& hahvi	0
 us	W. Michigan at Notre [gdg nv jfvdc& hc	4
 ir	تحقیقات نشان می دهد ؛ًشنعفثد هس ذشسهزشممغ شد	4
@@ -303,7 +303,7 @@ ir	هر خرثق فخ	1
 us	kl,n l[hvsjhk o,hihk Lunhgj	0
 ir	۱۸ اردیبهشت ۱۳۹۵ قخمثسو هدزمعیهدل	3
 us	'ssji	0
-us	They also qv,vD hc yDv	2
+us	They also qv,vd hc ydv	2
 us	The company has successfully hplnpsdk ung nv shg 1277	4
 us	We backed the nhvn nv	3
 ir	و امپراتوری ةشپثس ؤدفمثغک شس صثمم	2
@@ -376,13 +376,13 @@ ir	صثذسهفث فخیشغ فخ سفشقف حمشددهدل غخعق	0
 ir	در روش حثقسخدس شدی قعساثی فخ	2
 us	The 'vtj.	1
 us	Students can pass f,nk	3
-ir	سفير افلاک:حجت الاسلام سید ٔشپثی ُاث آشقرثسفو فاثغ شقث پخقث	4
+ir	سفیر افلاک:حجت الاسلام سید ٔشپثی ُاث آشقرثسفو فاثغ شقث پخقث	4
 ir	مغناطیسی که توسط محققان فخ فهث	4
 ir	اما شاید از همه صاثد صث لقثص هدفخ	4
 ir	شما بقخپ	1
 ir	بمثطهذمث تخذس بخق بهطثی	0
 ir	در ایران، میزان صشس ذغ ش پشد صاخ	3
-ir	در مراتب بعدي بخشهاي فاث هپحخقفشدزث خب ش اثشمفاغ	4
+ir	در مراتب بعدی بخشهای فاث هپحخقفشدزث خب ش اثشمفاغ	4
 ir	تیگرا فاث شهی خب ش ذقهثب یهسفقشزفهخد	1
 ir	، شرف محسوب صاثد پغ ذشزن	3
 ir	باز می‌گردد که زخدفثپحف خب	3
@@ -393,17 +393,17 @@ us	2400	0
 us	"Serving jhvdo athid ntjv	1
 ir	روش ساده‌ای برای ءشقهدث	3
 ir	[شقفغ پشدهبثسفخ زخدفشهدس	0
-us	MPP Cheri DiNovo , [lu 'vhDD vh ltv,q	3
+us	MPP Cheri DiNovo , [lu 'vhdd vh ltv,q	3
 us	75 lsglhk hc lndki [ij p[	0
 us	A hcn,h[ ;kd?	1
 ir	کارشناسان غخعق قهسن خب اشرهدل ش	1
 ir	در این مرحله لهرهدل صشغ فخ	3
 ir	پروژه آمار نمرات دانش شقث لقخصد هد	4
 ir	با وجود این فخ ذث	3
-ir	بنابراين سرمايه ّگپ شزفعشممغ شیپهدهسفقشفهرث خرثق خفاثق یخزفخقس.؛	2
+ir	بنابراین سرمایه ّگپ شزفعشممغ شیپهدهسفقشفهرث خرثق خفاثق یخزفخقس.؛	2
 us	Starting fv'	1
 ir	بخق فاث سحقهدل سثپثسفثقو ّگرث سثثد	0
-ir	او به هر نوشتهاي ثشسغ-فخ-ثشف بخخی غخع ندخص فاثغ مهنث.	4
+ir	او به هر نوشتهای ثشسغ-فخ-ثشف بخخی غخع ندخص فاثغ مهنث.	4
 us	Without such ]ivi yhgf [,hlu	2
 us	It finally finished at , hc clhk ;,n;d f,dn nv	4
 ir	زبان عربی که زخدفهدعهدل شاثشی صهفا حمشدس بخق	3
@@ -419,7 +419,7 @@ us	She ,hrud fn,k ]alnhaj	1
 ir	عاشورا فهپث ّ صثدف فخ سثثن اثمح.	1
 us	He v,d	1
 ir	در سخنرانی اخص	2
-ir	اين نظم فخ لخ خعفسهیث	2
+ir	این نظم فخ لخ خعفسهیث	2
 ir	چرا خوردن گوشت مردار ؤس سخپث سشغو فاهس هس	4
 us	Ms Wilkie lsjlv ;dtdj tuhgdj nhka'hi	2
 us	Green Party leader Jane ldgd,k v,sd nv ilhk shg	4
@@ -459,7 +459,7 @@ us	And he listened 25	3
 ir	باقی مانده به‌طور خب فاث سفخقث صخعمی ۱۷	3
 ir	در مقابل عده شقث	3
 us	We shg 1958 ldghnd shoji an.	1
-us	Cancelled shares nD;s,k	2
+us	Cancelled shares nd;s,k	2
 us	fi	0
 ir	سرکه‌های ساخته شده قخشی زعققثدفمغ یثشی-ثدیس هد ش حشسفعقث.	3
 ir	ئفعیهخ ۵۸ شزفخق «هشپ ئفثصشقف-»شدهلشد	0
@@ -508,7 +508,7 @@ us	Moreover, a lvnl hevd uldr fv [hd	2
 ir	نامقدس ئثقرهزثس ««ژ شدی	1
 ir	فلذا اصل خفاثق	2
 ir	سشغس	0
-ir	خواجه نصيرالدين طوسي از بخق صاثد هف خحثدس.	4
+ir	خواجه نصیرالدین طوسی از بخق صاثد هف خحثدس.	4
 ir	اینجا باید خب خعق	2
 ir	بطور کلی ةخدثس هس +۱۵۰ شدی	2
 us	Twitter, Ford Motor and ,d	4
@@ -532,14 +532,14 @@ ir	، هد-حثقسخد زخپپثدزثپثدف زثقثپخدهثس خرثق �
 us	When ]',ki vshki	1
 ir	و بازارچه ُاث بهقث اشس ساعف یخصد	2
 ir	پخقث صخقن فخ ذث یخدث هد	0
-us	v,Dnhn& Hk vh wvthR fi	0
+us	v,dnhn& Hk vh wvthR fi	0
 us	Family and friends of shcd	4
 ir	در ذهمهدلعشم سفشفعس ذثهدل بهقپمغ هد فاث	1
 ir	از پعزا سهلد	1
 us	Anna is the fhgdkd	3
 ir	افراد در ُاشف پعسف	2
-us	, shtg , avDt ,	0
-us	The MVP , hvcaihD nDkD , hoghrD klhDkn.	2
+us	, shtg , avdt ,	0
+us	The MVP , hvcaihd ndkd , hoghrd klhdkn.	2
 us	nv Hk kra Htvdkd ;vn.	0
 us	;i	0
 us	hdsj'hi	0
@@ -551,7 +551,7 @@ ir	موارد آموزشی مطرح شده سثزخدی-لعثسسهدل هد ف
 us	"Going into this ;vlhk	3
 us	Hayli and , xfdud	2
 ir	دخصو شدی صاثد	0
-ir	اومانيسم پغ بشپهمغ فخ	1
+ir	اومانیسم پغ بشپهمغ فخ	1
 ir	مساحت و ثدخعلا فخ هدبخقپ خدث فاشف	2
 us	The works cdhnd	2
 ir	فقغ شدی پشنث سعقث غخعق زاهمیقثد	0
@@ -577,7 +577,7 @@ ir	در انتهای فیلم کاتالینا بخق فاشف.	4
 us	Personal consumption expenditures (PCE) nv sniN mhkcnil ldghnd/kil i[vd f,n.	4
 us	Anyone hc shg	1
 ir	در ُاث دعپذثق خب حشفهثدفس هد	1
-ir	در اين جلسه استاد ئژٍ ٔشدتهدل	4
+ir	در این جلسه استاد ئژٍ ٔشدتهدل	4
 ir	دلیل آن روشن است؛ ء«ؤ زخدبهقپثی فاشف	4
 ir	وقتی که: یک ثرثقغ شببثزفهخدو ثرثقغ بقهثدیساهحو ثرثقغ لخخی	3
 us	When we v,d	2
@@ -616,7 +616,7 @@ ir	سلول‌های پشفا	1
 ir	شعیهفخق اشی ؛رشقهخعس زخدزثقدس قثمشفثی فخ	0
 us	Is the latest s, d;shkd	3
 ir	ولی حاضر حخمهفهزس.	2
-us	We lDchk jlhs hDk vaji ihD fsDhv	1
+us	We ldchk jlhs hdk vaji ihd fsdhv	1
 us	Two large whole ldchk ;hgvd lwvtd	3
 ir	هدفقخیعزثی هد شمم [عذمهز	0
 ir	صاشف پشنثس	0
@@ -664,10 +664,10 @@ ir	از دو گروه در شدی فاشف قثیعزثس فاث قهسن خب	4
 us	)2( ukhwv nv iv sxg lvjf	0
 ir	وکیل فروشنده با خد عدپشددثی	3
 ir	بود) ُهلثقس اثمی	1
-us	shni cDsjD hlhl olDkD	0
+us	shni cdsjd hlhl oldkd	0
 ir	گزارش شده ۲۰۰۰ أعهدثشس سعززثسس خد »شپثنخ	2
 ir	ذث عح	0
-us	He's lD j,hkDl Hk vh	1
+us	He's ld j,hkdl Hk vh	1
 us	And it was an.	3
 us	If svhsv Hbvfhd[hk aivj mdnh	1
 us	The nhvn 49 ljv fhghjv hc sxp	1
@@ -715,7 +715,7 @@ us	United Way ;i ljhsthki jh shg	2
 ir	وی فخمی فاث	1
 ir	ش حثقسخدشم اشمم خب ۲۲ حخهدفس.	0
 ir	ناظر کیفی هدسهلدهبهزشدف سفخقغمهدث سفثپپهدل بقخپ فاثهق مخسس	2
-ir	بحرانهاي معرفتشناختي هنگامي رخ اث صقخفث خد	4
+ir	بحرانهای معرفتشناختی هنگامی رخ اث صقخفث خد	4
 ir	زخپپعدهفغ پعسف	0
 ir	وی غخعق مهبث هس	1
 ir	اینکه به آینده پهسسثی اهس	3
@@ -735,7 +735,7 @@ ir	امروز جناب صثقث لمشقهدلمغ قهزا هد رشقهثفغ�
 ir	کاربردهای سنتز قثلهسفقشفهخد فخ قثشیثقس خب ُاث ٔخخدثق	2
 ir	با ؛ُاث دشفعقث هس ثطحمخسهخد	1
 us	Property foad hc ckn'dj,k fhai ki ili	1
-ir	تفكر ما بايد قثشممغ اثمحثی فخ نثثح پث	3
+ir	تفکر ما باید قثشممغ اثمحثی فخ نثثح پث	3
 us	Some others gvhd lehg	2
 us	Vector 'vtj	1
 ir	ذشزن-فخ-ذشزن مشغعحس فخ لهرث ءهمم ٰشممثغ	0
@@ -787,15 +787,15 @@ ir	ذعیلثف ذغ ۱۰۰ یشغسو	0
 us	Everyone knows il	2
 us	But hoghr , lphln Hnhf hsj	1
 ir	وی درگیر سفشذذثی شف فاث ذشزن.	2
-ir	حال سوالي که فاقخعلا	3
+ir	حال سوالی که فاقخعلا	3
 ir	، جمعیت ًثسثشقزا	2
 us	Officers were called lhkkn	3
 ir	با شهادت خد فاث	2
 us	And then lhnva [,nd	2
 ir	این فاث	1
 ir	مهسفثی سشمشقغ بخق فاث حخسهفهخد هس	0
-ir	فقه درجامعه اسلامي ؤییهفهخدشممغو ؤئً	3
-us	The victim jpgDg hvhSi an ,	2
+ir	فقه درجامعه اسلامی ؤییهفهخدشممغو ؤئً	3
+us	The victim jpgdg hvhSi an ,	2
 ir	این مهبث قثرخمرثی شقخعدی	1
 us	'Hic tuus o Tamesine hdk 'vtj	4
 ir	نیروگاه تولید همزمان ُاث ذعسهدثسس خعفقثشزا هس	3
@@ -804,7 +804,7 @@ ir	سرپرست اداره اوقاف دشتستان صثقث	4
 ir	راهزنان به تعقیبشان یخ	3
 ir	در این خزثشدس.	2
 ir	به دلیل اینکه این فخ يعزن شدی ٌشببمث	4
-us	But Zi	1
+us	But ;i	1
 ir	منشی(یزدی)- اجازه بدهید ذعف ّ مثشقدف سخ پعزا شدی	3
 ir	خب هدسهلاف	0
 ir	ترامپ به جای پشهدفثدشدزث شس حقثسثدفثی هد آخعسث	3
@@ -828,8 +828,8 @@ ir	به دثزثسسشقغ	1
 us	I aivdi kdlshg n,l shg	1
 ir	عشایر بختیاری در سیاه شمخدث ش اعدیقثی پهممهخد	4
 ir	ثطحخسثی فخ ثطفقثپث اثشفو سعزا شس	0
-ir	عرض كرد: دو ؤدیقخهیس شدی سفهمم بخممخصس	3
-us	Even Walz, hc xvDr hwghp	2
+ir	عرض کرد: دو ؤدیقخهیس شدی سفهمم بخممخصس	3
+us	Even Walz, hc xvdr hwghp	2
 us	hsghld	0
 ir	این فاشف	1
 ir	اولین اثر «شولوم صخقمیگس پخسف ثطحثقهثدزثی	3
@@ -851,7 +851,7 @@ ir	سفقخدلو ثرثد هد فاخسث صاخ	0
 us	According to kdhclkn b;v dh	2
 ir	بازدیدکنندگان فاثپ فخ قثمهدضعهسا فاثهق حاخدثس صاهمث	1
 ir	مناطق محروم به فاث سخزهشم	3
-ir	فقيه در بخش دوم ثدیثی عح شمهثدشفهدل صخقنهدل زمشسس	4
+ir	فقیه در بخش دوم ثدیثی عح شمهثدشفهدل صخقنهدل زمشسس	4
 us	hsghld ]kdk hojdhvd knhvn ,	0
 us	The results [ij jfhng	2
 us	Reports hdk k;ji hsj ;i jvhtd; af;i	1
@@ -888,7 +888,7 @@ ir	چشمان ُاث سثزخدیشقغ سزاخخم صهدفثق فخعقدشپ
 ir	قثحخقف فخ فاثهق قثسحثزفهرث	0
 ir	است هد ذخفا	1
 us	, j;ldg ]; gdsj Hddkkhli 2800	0
-us	Hehv rhk,kD hsj	0
+us	Hehv rhk,kd hsj	0
 ir	نتیجهگیری: میتوان فاث یثشمو فصخ ثطفقثپث حخسسهذهمهفهثس	2
 us	No ksfj fi cfhk	1
 ir	ریتینگ ۲۶۳۷ را دارد. ]رثق شف [خقفمشدی	4
@@ -935,7 +935,7 @@ ir	در فاث دهدث سفشفثس صاثقث	1
 us	Robin hdk;i" lah,vhk ldj,hkkn fi lah[vhj j[hvd	1
 us	Meanwhile, Los hc 13ichv , 800ldgdhvn j,lhk fv'aj	2
 ir	رایان گاسلینگ سثقرثی شس یثحعفغ	2
-ir	بيليا: آرژانتين غخعق اخپث هد شد ثببهزهثدف حشففثقد.	2
+ir	بیلیا: آرژانتین غخعق اخپث هد شد ثببهزهثدف حشففثقد.	2
 us	It kts nv rjg ulnd , rwhw	1
 ir	مانند «پکا ة]آٔ ءژي]ٍٔٔ«« اشس ذثثد خد ش	2
 us	ih kdc	0
@@ -965,8 +965,8 @@ ir	مشتریان شما از بین صهفا ش سفقخدل سثدسث خب ش
 us	h[vhdd ,	0
 us	Their sons and ,	3
 us	Jillian Brown and Martin fi htchda pv;j& rnvj , ;hia	4
-us	It lnDvDj s,hkp&	1
-us	cDvh nv fDajv Za,v ihD	0
+us	It lndvdj s,hkp&	1
+us	cdvh nv fdajv ;a,v ihd	0
 us	In addition, people's circumstances yci nv hojdhv shclhk	4
 ir	مک ویلیامز و سیگل ذغ	4
 us	This fh hdk	1
@@ -980,7 +980,7 @@ us	hfuhn&	0
 us	n,a	0
 us	vqhdj alh ;hvfv lpjvl fh jidi	0
 us	If accommodations l[l,ui pnhrg nhniihd sdsjl	2
-us	pvZj& yhgfh v,phkD,kD f,nkn Zi	0
+us	pv;j& yhgfh v,phkd,kd f,nkn ;i	0
 us	Multiple people might come hslhudg ;,ahk )1340( , nv,hci	4
 us	As well as expanding hovh[& phg , v,c hlv,c s,kd	4
 us	It was a ljv[l l[l,ui ianhv fvhd	3
@@ -1024,7 +1024,7 @@ us	Disbursements will 2219 fi ugj o,hw lkhsf jv&	2
 us	CareView Communications, hdk ;jhf vh krg	2
 ir	به ذعفزاثق غخع	1
 us	Even after my three Hk j,v& Hkih	4
-ir	علائم افسردگي فاثد ذثزشپث فاث شزفهدل	2
+ir	علائم افسردگی فاثد ذثزشپث فاث شزفهدل	2
 ir	لخف	0
 ir	آیا به کیفیت پشنث سعقث	3
 ir	به فاث ذثسف حشقف هس	1
@@ -1073,7 +1073,7 @@ ir	تعریف لغوی و اصطلاحی فخ فاث	4
 ir	آرسنیف نیز به عنوان ٍشقفاو صشفزا هف لثف ذمشسفثی	4
 us	As a reminder, H,hvi ;vn&	3
 ir	ذهممس شس صثمم شس ذشدنس	0
-ir	ديويدسون از تئوری صدق صشس مثبف فخ	4
+ir	دیویدسون از تئوری صدق صشس مثبف فخ	4
 us	And, I haven't uk,hk hfvhcd fvhd ;kjvg dh	3
 us	LAST PHOTO: This photograph Hfodcnhvd aivsjhk fknvgk'i hc Hbdk fknd	4
 ir	از ش اشمب غثشقس	1
@@ -1082,13 +1082,13 @@ ir	خار شقپثی	1
 ir	داستانی این کشور شلشهدسف	3
 ir	این شهر در اشس یثزهیثی فخ حمشغ بخق	3
 us	What will not surprise [lgi ]',k'd pg , twg	4
-us	I encouraged somebody hrjwhnD f,n[i wvti [,DD ani	3
+us	I encouraged somebody hrjwhnd f,n[i wvti [,dd ani	3
 ir	اگر دوستهمسرتان تلفن میکند ٌخنهدل	4
 ir	تفسیر صهفا پخقث شزفهخد	1
 us	My babies , oh,v vh	2
 ir	که تأثیر حقثرهخعس [شقمهشپثدفو	2
 ir	دریایی است که بر اثقث فصخ صثثنس ذثبخقث فاث ثمثزفهخد.	4
-us	j,hkn lnogD fvhD [bf HvhM	0
+us	j,hkn lnogd fvhd [bf HvhM	0
 ir	دگرگونی ما از شناخت نهزنثی خعف خب كشدع	4
 us	The budget tries to shg 1355 fx,v lsjrg nhka[,	4
 us	Xcel Energy plans ;sf	3
@@ -1141,9 +1141,9 @@ us	No Replies to "REVIEW: wu,n fi lvpgi fund	4
 ir	وی افزود آمار ثطحمخسهخد بخق	3
 us	U think any aY;tjd & ;i iv aUf afY	3
 us	Smil contends that there nvfhviN hdk ,h;sk lkjav kan.	4
-us	Brown is a mcaZD jfvDc fvhd klhda fijv	3
+us	Brown is a mca;d jfvdc fvhd klhda fijv	3
 ir	همچنین به شکل ذث ذثسثف ذغ زخدبعسهخد شف فاث	3
-us	Getting lvnl fvhD vsDnk	1
+us	Getting lvnl fvhd vsdnk	1
 us	Hyhc ,	0
 ir	گروه آقای نووتنی یثپخدسفقشفخقس شدی ش پشد صثشقهدل	3
 ir	قثشیغ فخ	0
@@ -1225,17 +1225,17 @@ ir	نتایج جستجو برای «گزارش سخپثخدثگس هدلثسفث
 ir	«از اینکه نتوانستم فاث مثشقدهدل سحشزث	3
 ir	با دو زشق قثحشهقثیو شسن اخص پعزا غخع	2
 ir	جهت استخراج این آنزیم، هف	4
-ir	در تمام اين خعف خب سزاخخم اشرث	3
+ir	در تمام این خعف خب سزاخخم اشرث	3
 ir	در برخی موارد، اختلالات ؛ُاهس هسدگف ش مهزثدزث فخ	4
 ir	یعنی فقثشفپثدف قثیعزثس فاث	1
 ir	واحد توان فخ فاث قثحخقف خب فاث ئحثزهشم	2
 us	Volunteers of all ohvlvdl	3
 us	This is a crucial nv ]ihv],f d; pcf vsld	4
-us	They then buy hvqhD hDk kDhc ZlZ	3
+us	They then buy hvqhd hdk kdhc ;l;	3
 us	And what joy it ktv vh ;aj , 58 ktv	4
 us	Their public hdk	2
 ir	أثقپشدغ	0
-ir	درخصوص منطقهاي يشرهی صشس تعسف ۲۵ صاثد ساث	2
+ir	درخصوص منطقهای يشرهی صشس تعسف ۲۵ صاثد ساث	2
 us	Irish Cement has mvd& fi	3
 us	And hc shg 2014 Hyhc	1
 us	A this month found ki[hgfghyi	4
@@ -1252,7 +1252,7 @@ ir	فشقلثف حقهزث خد	0
 ir	جنگل‌های این پشهدفشهدهدل	2
 us	Just j;ldg ;jhf ohxvhj o,n	1
 ir	ذغ ۲.۵	0
-ir	فرآيند پايش ذثللشقس ذثبخقث حعففهدل فاث لقشهد	2
+ir	فرآیند پایش ذثللشقس ذثبخقث حعففهدل فاث لقشهد	2
 ir	نیروی انسانی ّد شییهفهخدو ذقثشی شدی	2
 us	Executive 9 jsh,d , 9 a;sj	1
 ir	ش پشددثق فاشف پشیث	0
@@ -1264,7 +1264,7 @@ us	If so, ilhda fi lkz,v rnvnhkd hc	2
 ir	زمانیکه میخواهند توانایی ّ شپ حقخعی خب	3
 ir	چندین شذهمهفغ فخ لثدثقشفث سعببهزهثدف زشسا	1
 ir	را فاشف شسهیثو هف صشس ش	1
-ir	تمدن مسيحي، به خصد نهزنثقس خد فاث	3
+ir	تمدن مسیحی، به خصد نهزنثقس خد فاث	3
 us	With ,	1
 us	Unlike numerous peer d; nmhvjlhk	3
 us	The rise d,l,k' 50 ktv [ludj nhvn.	2
@@ -1278,7 +1278,7 @@ ir	بزرگترین ژخپث خدو صثگقث یغهدل صهفا هف.	1
 us	It is v,nohki o,na vh k[hj	2
 ir	در سال ۱۳۴۵ سفخقپغ ش دهلاف شس زخعمی	3
 ir	هاویر فاث بهقسف اشمب صاثد	1
-us	Original 1884 architecture hjhr fhcv'hkD&	3
+us	Original 1884 architecture hjhr fhcv'hkd&	3
 us	[hlu zvtdj [hf[hdd	0
 ir	ءشهدمغ	0
 us	They help lxhgfhj lh	2
@@ -1359,13 +1359,13 @@ ir	امروزه جامعه علمی آخسسثهددثتشی سشهی	3
 ir	در این حالت، قسمت سثثپس ش مهففمث	4
 ir	اینکار فقط باعث می صث تعسف دثثی	4
 ir	فاث پثسسشلثس مثشنثی	0
-us	It is now lkwvt Zvn , hlhl	3
+us	It is now lkwvt ;vn , hlhl	3
 us	You want hldn oh;a,v , sidg ydhed phtzd(.	2
 us	The 2017 State of lbifd nv hdk	4
 us	She ltsIv	1
 ir	اندازهگیری رقابتپذیری زنجیرههای تأمین زخعقسث خب فاقثث غثشقس	4
 ir	فصل بهار بود شدی لخخی لخرثقدشدزثو	3
-us	I noticed lkfu ohw& l,q,u jZhtg ,	2
+us	I noticed lkfu ohw& l,q,u j;htg ,	2
 us	In the 100 freestyle, m,vji fi ngdg fdlhvd	4
 us	She fi	1
 ir	در ُاث	1
@@ -1392,7 +1392,7 @@ ir	به خفاثقس سعسحثزفثی فاشف	1
 ir	پس فلسفه حقوق ثطزعسث فخ	3
 us	Dragon boating has hc hd[hn jv,lf,c	3
 ir	، با ؛آثممخ يهثلخ )ءشقشیخدش(و	2
-ir	خدمات دندانپزشكي هس ِثس خد فاث ئشد إقشدزهسزخ	2
+ir	خدمات دندانپزشکی هس ِثس خد فاث ئشد إقشدزهسزخ	2
 us	Whether khl 5 ichv ktv hc	1
 us	What hk[hl an.	1
 ir	شزفهخدسو هد حعذمهساهدل فاث عدقثیشزفثی یخزعپثدفس	0
@@ -1400,7 +1400,7 @@ ir	میانگین سطح سواد در ش َََِأٍ ثلخو صخعمی	4
 ir	تحقیق حاضر یکُ صثقث اشسفهمغ قثزشممثی	3
 ir	پیروز در حال قهلاف دخص فاثغ صخعمی ذث	3
 us	l,trdjihd fcv' vh	0
-ir	الگوریتم هاي ژنتیک، إخق	3
+ir	الگوریتم های ژنتیک، إخق	3
 ir	در پاسخ به فاشف ّ	3
 ir	در فخ لثف عح خق	1
 ir	لذا «شسف پخدفاو ْشفشقگس بهقسف ءًٍئ زشسث	1
@@ -1409,7 +1409,7 @@ us	Ethiopia - Tigray Leader l,vn fvvsd	4
 ir	نرم‌تنان دو جنس مخالف زاثپهزشم	4
 ir	پسری ک بقخپ ءشقساشمم صقخفث فخ فاث	2
 ir	فرمولاسیون، تهیه ش قثحخقف بخق ثطفثدسهرث	2
-ir	متفکران روشنگري معتقد ذث	3
+ir	متفکران روشنگری معتقد ذث	3
 ir	با »ثثح عح-فخ-یشفث صهفا	1
 us	Torrey Bohannon klhdkn'hk Hlh[ plgi i,hnhvhk vqhohk ankn	2
 ir	سیره عملی و احادیث عدفهمهفغ هد	4
@@ -1471,7 +1471,7 @@ ir	و زبان مهفثقشقغ ثرثدفسو	2
 ir	از ئغپحفخپ هدبخقپشفهخد هس دخف غثف	1
 ir	مخعدلث( شف فاث سشپث	0
 ir	که اشس یثفثزفثی ۲۵ زشسثس	1
-ir	در غير هب اث اشی شزفعشممغ پشیث فاث	2
+ir	در غیر هب اث اشی شزفعشممغ پشیث فاث	2
 us	'Floating on svalhvd shg 2010 ldghnd&	2
 ir	این موزه بزرگترین موزهٔ رهدفشلث	4
 us	She described the fi nfd	3
@@ -1506,9 +1506,9 @@ ir	مزیت نسبی در ُاث بهدشم ثطحثزفثی فخفشم؟	3
 ir	زندگی شسسشعمف خد فاث	1
 ir	سعزا ش قثپشقنشذمث	0
 us	Al Watkins, luh,kj h,g o,n lkw,f	2
-us	She argued that there n, lvjfi kDc	4
+us	She argued that there n, lvjfi kdc	4
 ir	فروشندگان قراردادها مهنثو «ًٍُّؤ««ِ یثشی.	2
-ir	هاي اجتماعي برخاسته هد فاث مهسف زشپث بقخپ	3
+ir	های اجتماعی برخاسته هد فاث مهسف زشپث بقخپ	3
 us	And uglh lohgt jrvdf hndhk , lbhif	1
 ir	اگر با رویکرد بثثمهدل	3
 ir	پپتید نانوفیبر شف حقثحشقهدل	2
@@ -1556,9 +1556,9 @@ us	Currently, lhkkn hdk kl,nhv nhaji	1
 us	She's l,trdj	1
 ir	مراکز پژوهشی در فقشزن شدی	3
 us	fvhd [sj[,d cdvshojihd fijv n,	0
-us	Nelson pressured the ZkZhaD mDvhl,k	3
+us	Nelson pressured the ;k;had mdvhl,k	3
 ir	این سه جهت ثدزخپحشسسثی فاث حقخیعزفهخد خب	3
-ir	ميوه هاي گرمسيري اهس حشقثدفس اشدیمثی فاث	3
+ir	میوه های گرمسیری اهس حشقثدفس اشدیمثی فاث	3
 ir	ّسدگف فاثقث شمسخ	0
 ir	ؤعلعسفو شف ثشقمغ	0
 ir	هم‌چنین به نظر می‌رسد ثدشذمث ءشددهدل فخ خذفشهد فاث هدبخقپشفهخد	4
@@ -1582,7 +1582,7 @@ ir	تراز سطح ُاشدخس پعسف سشزقهبهزث صاشف اث مخر
 us	In recent years 140 uq, nhvn , l[gs lgd	3
 us	'Girl I hSjght phwg	2
 us	Under Poland's vh	2
-us	vh fvhD ;hg,k tvhil	0
+us	vh fvhd ;hg,k tvhil	0
 us	According to him, ]ig v,c v,ci	3
 us	All actors who ]i ;hv	3
 ir	سفشفث اشس پشیث	0
@@ -1606,7 +1606,7 @@ us	;kkn ;i nv nv,k o,da	0
 ir	ش قثبمثزفهخد خب اهس	0
 us	In both those ;ajd f,n ;i	3
 ir	از خب يثبثدسثو ّقشنمه ؤمشسشدهش شزفس	1
-us	On the Zkkni	2
+us	On the ;kkni	2
 ir	افرادی که دارای یثرثمخحپثدف زخشزا ٔهزنغ ٍشیثد	3
 us	I thought the fvhd jp,g oghrhki& jyddvhj tkh,vd hsj.	3
 us	For example, on August f( l[l,u nd,mjvld,md fdk	4
@@ -1650,7 +1650,7 @@ ir	همچنین چندین کتاب بخق	3
 ir	بطور مثال شما فاث	3
 us	The last date knhvdn& fi w,vj	3
 us	The debate between [hlui hxghuhjd& i,dj tvik'd	3
-ir	آنچه در اين پشیث ثشسهثق شدی بشسفثق صهفا فاث	3
+ir	آنچه در این پشیث ثشسهثق شدی بشسفثق صهفا فاث	3
 ir	این نامه به‌زحمت در یخصدو هدسعمف غخع خق زشممس	4
 us	fi	0
 ir	وی با اشاره ذثثد	3
@@ -1673,7 +1673,7 @@ us	The stronger our iv v,c& s,vdhkd vh	3
 ir	بهش ُاث سفعیهخ	1
 us	Miramar Fire Rescue sjhn	3
 us	However, seeing Anakin fi	3
-ir	در حالیكه در نظریه«كانت» »خقدثم اشس	4
+ir	در حالیکه در نظریه«کانت» »خقدثم اشس	4
 us	Sarah Falasco is 'gnid	3
 ir	همه حصار به تصرف صخعمی صخقن: كثمیش زشد فعقد	4
 ir	همینطور که عبور از زخعدفقغ هد فاث صخقمیو صهفا ش	4
@@ -1700,14 +1700,14 @@ ir	کاربرد اکدی کهن هنگام هدرثسفهلشفهخدس	4
 us	Although onlhj l,ssi lnvshk avdt.	1
 us	People whose sexual , kavdhj ugld jh;k,k id]	3
 ir	این کتاب برای اولین ُاثدو زخعدفغ سفشبب اشس	4
-ir	سوپرايگو ناتوان از سخپثخدث ثرثق	3
+ir	سوپرایگو ناتوان از سخپثخدث ثرثق	3
 us	"Unknown object" washes hc hvca ihd	3
 ir	متحد شود و حمایت ذعسهدثسس هد	4
 ir	برای مثال بخق سفشدیهدل ذغ اهپ شدی حقخپهسثی	2
 us	The coronavirus pandemic l,[,n mvkni fcv' jfndg	3
 ir	قرار گرفت خقیثقهدل بخخی شف	2
 ir	در این دوره دخرثمفغ خب فاث پعزا-فخعفثی بثشفعقث صثشقس	3
-us	iv]kn hc hfk [kDn	0
+us	iv]kn hc hfk [kdn	0
 us	Would anybody j;i ihd	2
 ir	آن را ثیهفثی هدفثقرهثصو اث	2
 ir	عرض مش شقث	2
@@ -1720,7 +1720,7 @@ ir	نیروی تولید شده لزوماً فاثهق ساخصهدل سعذس�
 us	[dlc ,dg,;	0
 us	He pointed out ;a,v fi shclhk jowdw	3
 ir	فاقثث-غثشق یثشم	0
-us	lshDg tgstD hsj Zi mbDva iv	0
+us	lshdg tgstd hsj ;i mbdva iv	0
 us	qv,vJ ,[,n hgp;,lJ h,	0
 ir	کابیت، نویسنده مجموعه، با زمخعیس صثقث مهبفثی	4
 ir	پس از ءس ]زشسهخ-ژخقفثظو	2
@@ -1744,7 +1744,7 @@ us	The crash occurred o,hiva	3
 ir	مدیر کمیته امداد فقشدسحخقف یثحشقفپثدف هسسعثی	3
 ir	برای ایجاد مقیاس ][ّّٔ]ٔ ؤٔي ژ]ءءٍُٔ	3
 us	He explained that when hsj , nv 45 vaji n;jvh	4
-us	If you vaji hljphkD o,n vh	2
+us	If you vaji hljphkd o,n vh	2
 ir	و جنگ شمسخ اخسفهدل ش رهقفعشم «ثشرثقس	2
 us	I hlh alh	1
 us	Nigeria's petroleum ministry jGedv hdk Hehv	3
@@ -1761,7 +1761,7 @@ us	leg vhnd,l&	0
 ir	زیرا پیکری زخسفهدل فاث زقعهسث	2
 us	But state Republican leaders tvlhknhvd jv;lk& vk[d& khzv ,	4
 ir	ژشقدثلهث ّدسفهفعفث	0
-us	Guyana is a signatory ,DCi rkn o,k	4
+us	Guyana is a signatory ,dCi rkn o,k	4
 ir	توجه داشته هد حمشزث بخق	2
 ir	همزمان به ساختمان این هف تعسف زاشدلثی اهس بخزعس.	4
 ir	ذهقی صشمنسو خق یهسزعسسهخدس خد سخزهشم	0
@@ -1786,7 +1786,7 @@ ir	این‌ها همگی بازخورد هستند. ذغ فاث ئعیذعقغ	
 ir	فروش شماره مجازی شد هیثش غخع زشد عسث.	3
 us	The CASE Gallery of v,a	4
 ir	قثمثشسثی سهدزث	0
-us	Some 80 homes vhk l,vn fvvsD	3
+us	Some 80 homes vhk l,vn fvvsd	3
 ir	ظرفیتسازی فخ شسسهسف رشقهخعس	1
 ir	امید ّدبخقپشفهخد سعللثسفس	1
 ir	حقثففغ بمخقشم ثپذقخهیثقثی	0
@@ -1798,14 +1798,14 @@ ir	برای قثشسخد فاشف حثشزث ذثفصثثد ّسقشثمهس ش�
 us	[ihkd ;i mdajv fi	0
 ir	فاثغ شمصشغس اشرث فخ	0
 us	f,n.	0
-us	BJP came close to ,Dg	4
+us	BJP came close to ,dg	4
 ir	دستورالعملش هم این بوده ش حمشد فاشف صهمم شممخص	4
 ir	اعتبار شرکت را بررسی شذخعف فاث ضعشمهفغ	4
 us	TOKYO, April hsjthni	2
 us	The fvdn	1
 ir	شقف خب فاث مشسف یثزشیث.	0
 us	This vh fh l,q,u jv;df	1
-us	The hc mh,vm,dkj hvcDhfD	1
+us	The hc mh,vm,dkj hvcdhfd	1
 ir	علیرغم ٌثگقث خببثقهدل ٰهقفعشم ژشسفهدل ًخخپ فقشهدهدل	1
 ir	لازم ذث حثقپهففثی فخ قثخحثد یعقهدل حاشسث	1
 ir	و ةثددهبثق	1
@@ -1869,7 +1869,7 @@ us	For khok nv fdlhvhk	1
 us	lnj h[hvi& nrj klhddn	0
 ir	شمایلی از یک [ثخحمث دثثی فخ زخدفهدعث فاث	3
 ir	هایندونک ۴ ضعثسفهخد	2
-us	"The facts fdkhglggD nv ow,w lnDvDj vDs; ,	2
+us	"The facts fdkhglggd nv ow,w lndvdj vds; ,	2
 ir	ابعاد مصرفی این بلوکهای شدی هفس سثزقثفشقغو	4
 ir	از جمله فاث یهسسشفهسبشزفهخد خب قثسهیثدفس ثشلثق بخق	2
 ir	ءشغو صشس	0
@@ -1921,13 +1921,13 @@ ir	در این فقشیثس	2
 us	hdhgj fdsj , kildk	0
 ir	بدون ّ اشی ضعشققثمثی.	1
 ir	به ثطحمشهدثی اخص اث قثزثهرثی سخپث	1
-us	This can also be Zi tvn lahini Zkn Zi	4
+us	This can also be ;i tvn lahini ;kn ;i	4
 ir	اشس	0
 us	In this regards , jvhksdg,hkdh l,trdjd nv	3
 ir	روشن است فاشف حقخرهیث سزاخخمس صهفا بخخی.	2
 ir	پورمحمدی گفت: باید با ُاشفگس ذثزشعسث ش	4
 us	On the fdlhvdih kwdfl	2
-ir	آموزش كاركنان و لخمیثد خححخقفعدهفغ فخ	3
+ir	آموزش کارکنان و لخمیثد خححخقفعدهفغ فخ	3
 us	Hbvfhd[hk hc	0
 ir	که شاید به نوعی فخ مثشی فاث زاشدلث.	4
 ir	ءخعدفشهدگس زخقحخقشفث ذقشدی	0
@@ -1955,8 +1955,8 @@ ir	در این جستار، با ُاشدن أخی	4
 us	Monday night's h, pjd hpjlhg fv'chvd d;	2
 us	lpln [ghg hgndk hgfgod hgv,ld	0
 ir	همزمان، شذخعف فاث حقختثزفو فاث زمشهپس خب	1
-ir	اگر در بخشي از پخقث هپحخقفشدف فخ	4
-ir	همچنين فخ لهرث	1
+ir	اگر در بخشی از پخقث هپحخقفشدف فخ	4
+ir	همچنین فخ لهرث	1
 us	Mr O'Dowd lost hdk foa	3
 ir	در دیدگاه اوستا، انسانها هس دثزثسسشقغ ثسحثزهشممغ ذثزشعسث	4
 ir	إهثمی ژمعذ /	0
@@ -2013,7 +2013,7 @@ us	"Such a substantial i,dj lulhvd aiv lain nv odhfhk	3
 ir	گفت قصد فخ ثدشذمث هف فخ ثطثقزهسث هفس	2
 ir	در ۴ اردیبهشت یشغ تخذس.	3
 ir	، جایگاه و اهمیت عسثق	4
-us	In MIND, the cumulative hughl Zvn: HovDk clhk	4
+us	In MIND, the cumulative hughl ;vn: Hovdk clhk	4
 ir	خب قثزغزمهدل سثثپثی زمثشق.	0
 us	In any event, o,n vh nv fhf Hchnd lxf,uhj	3
 us	Hugh joined 2010 fh h, nv hvjfhx f,n.	2
@@ -2131,7 +2131,7 @@ us	As there were ;i	3
 us	Energy Innovation: AC nv junhnd hc	3
 us	He is isjkn ;i ucdcahk vh fv	2
 us	;ajd f,n ;i	0
-us	Frustrated, Strange flees ;,isjhkd )nlh,kn( fvhd nhkalknhkD ;i	3
+us	Frustrated, Strange flees ;,isjhkd )nlh,kn( fvhd nhkalknhkd ;i	3
 ir	مشی ثطحثقهثدزث خق اخص مخدل ّگرث	1
 us	I believed this lvnl na,hv lda,n ;i	3
 ir	قدمیهایی که روی صفحه خعف ذشسث اهف ذغ	4
@@ -2169,7 +2169,7 @@ us	lh ckni lhkndl&	0
 ir	است، بزرگترین و صهفا فخفشم یثشفاس سفشدیهدل	3
 us	I'm going to hc	3
 us	Good luck with the ;dtdj fsdhv lxg,fd fvo,vnhv hsj ,	4
-ir	تبصره۳ـ نيروهاي فاخعلا فاهس هس پهمیثق فخ غخعق	2
+ir	تبصره۳ـ نیروهای فاخعلا فاهس هس پهمیثق فخ غخعق	2
 us	They lphsfi ld a,n	1
 ir	می‌خواندند؛ دورترین سیاره (کیوان) سهفث خب فاث «خعفا	4
 us	The latest nlhd [,a tdgl , ;aa sxpd	2
@@ -2188,7 +2188,7 @@ ir	اشرث پخقث قثشزفهخد شذخعف ءخدیشغگس یثزهسهخ
 us	The event, which fhc il hdk fhghd 50% hsj.	3
 ir	در انتخابات سال فثدشدفس صهمم	3
 us	Ngarivhume told j, odhf,k	2
-us	fvhD jpwDg uhcl	0
+us	fvhd jpwdg uhcl	0
 ir	چنانچه موضوع اعتراض قشهسث ش بهسف صهفا	3
 ir	در بهسزشم	1
 ir	واقع شده‌است و در فاهسو ذعف سثقهخعسمغ.	4
@@ -2257,7 +2257,7 @@ ir	صاخ سحثزهشمهظثس هد زاشقشزفثق	0
 ir	باتوجه به فخ	2
 ir	با توجه دثص ساهقف	2
 ir	بی نقص عمل خقیثقو ذعف صثگی ذثثد	3
-ir	خداوند متعال میفرماید: «يُرِيدُونَ ًهسهدل ئهلد	4
+ir	خداوند متعال میفرماید: «یُرِیدُونَ ًهسهدل ئهلد	4
 us	Thanks to ;i j,d lwhpfi fhgh	2
 ir	فاث شدطهثفغ	0
 ir	مرحوم سید محمدتقی حجت ندخصد فخ قثزخرثق ضعهزنمغ.	4
@@ -2278,7 +2278,7 @@ us	He Hk	1
 us	hsj ;i	0
 ir	می کند، او سنهقف	3
 us	Each rslj fhghd shdj hsjthni klhSdn	1
-us	Do ckhk yDvHchn	1
+us	Do ckhk ydvHchn	1
 ir	برای مثال زمانی که فشدلهذمثو	4
 ir	کارگاه آموزشی پیشگیری ذعسغ	3
 us	Health officials in the lukd mvni , ph[f hsj.	4
@@ -2378,7 +2378,7 @@ ir	در حال ّ شپ سعقث ءق. ئعپپثق	2
 ir	البته لازم به فاث ذثدثبهفس خب ش	3
 us	Let's do something about Hovdk mdavtjihd ugld nv cldki isjihd	4
 us	The Council had nv l,j,v [sj,[,d mhd'hi nhni	3
-ir	در كشورهایی كه ثطحثزفهدل هف فخ اشححثد.	3
+ir	در کشورهایی که ثطحثزفهدل هف فخ اشححثد.	3
 ir	در ٌاثد قخشیس یخ	1
 ir	ماده ۱۸- هر زخعدفغ هس شمپخسف یخعذمث فاشف خب	3
 ir	که در شپ	2
@@ -2444,7 +2444,7 @@ ir	انگار او بر این صاهزا فخخن	4
 ir	اولین لایه فاثغ مثشقدثی	2
 ir	ذشزن	0
 ir	یک روش زاعقزا	2
-ir	محدود كننده قشدنس شس خدث خب	2
+ir	محدود کننده قشدنس شس خدث خب	2
 us	According lavt nv d; av;j	1
 us	kw	0
 ir	اگرچه عملاً هیچ ارمنی زشسف شس	4
@@ -2461,7 +2461,7 @@ us	Your mind aivd , lfhvci fh	2
 ir	وقتی سؤالی نیست، فخ ژاخخسث ش ءثیهزشم ٍطحثقف ٌهفدثسس؟	3
 us	Meanwhile, Sonowal fi	2
 ir	اولین شس	1
-ir	هدف از تحقيق بخخفاهممسو	3
+ir	هدف از تحقیق بخخفاهممسو	3
 ir	پیچیدگی قثسحخدسث خد ٔخرثپذثق ۲۵.	1
 ir	در تبعیض قیمت نوع عسو غثسو	4
 us	Alpha Khan is j,hksjkn hdvhk vh	3
@@ -2494,13 +2494,13 @@ us	fdhk'v hsjthni hc hsj.	0
 us	Further information d; ;ajd f,n ;i x,g	2
 ir	آنها همچنین نگرانیهای خود خرثق فاث دثصس	4
 us	Today, ;vn.	1
-ir	در اين تحقيق با [خصثمم صثدف فخ ؤفمشدفش فخ	4
+ir	در این تحقیق با [خصثمم صثدف فخ ؤفمشدفش فخ	4
 us	He said atheists and ;v,l dh thdvth;s	4
 us	It's , mv,ln nv	1
 us	She even ;i nv Hk rvHk khcg	2
 ir	در ایران، لثف	2
 us	gxth nv w,vj hl;hk&	0
-us	I have vk' , xvp ;ta lDj,hkDn jrvDfhR	2
+us	I have vk' , xvp ;ta ldj,hkdn jrvdfhR	2
 us	The local distillery nv	3
 us	vh	0
 ir	و کای ]ظهمگس حثقبخقپشدزث	2
@@ -2540,7 +2540,7 @@ us	First Minister of Wales, htc,n: int Hvlhkd odgd hc	4
 ir	همچنین معاون فرهنگی و خعلاف فخ یخ پخقث فخ فشنث	4
 us	Human & xvhpd m,sji , kwf m,vj.	1
 us	It looks af;i hg;jvd;d hkvCd ghcl [ij ahvC	2
-ir	ـ «انگيزش عبارت اث صشدفس فخ فثممو	3
+ir	ـ «انگیزش عبارت اث صشدفس فخ فثممو	3
 ir	شدلقغ ژشقفپشد هس	0
 ir	البته این حقخذمثپس	2
 ir	در مقالات سفعبب	2
@@ -2560,7 +2560,7 @@ us	nv lrhfg vonhn lv' xfdud&	0
 us	In fact, shfri	2
 ir	برای خارج نمودن ۵۰-سزقهح ٔهبفغ شف ٔشفهخدشم	3
 ir	گاول در تور ۱۹۵۹ شدی قثهدزخقحخقشفهخد هدفخ	4
-ir	همان نظريه اماميه سهدزث اث اشی ش	3
+ir	همان نظریه امامیه سهدزث اث اشی ش	3
 us	Mr. Trump in efj	3
 us	'A tgaf; low,w lg;id o,kdk.	1
 us	kdc nv shg	0
@@ -2569,13 +2569,13 @@ us	fhue	0
 us	Combine those l,hn h,gdi& tv,a lpw,g ,	2
 ir	تب حلزون تقریباً ۲۱۰ پشدغ دخف اشرهدل فاث	4
 ir	چه تعداد دانشجوی کاتولیک ح.پ. یثشیمهدث فاثغ صهمم	4
-us	Dallas is the ,U jToQvY[T hgQlUDIYjU lYkU hgQpUDIYK"	3
+us	Dallas is the ,U jToQvY[T hgQlUdIYjU lYkU hgQpUdIYK"	3
 us	A vh hd[hn ;vn hnhli dhtj.	1
 us	ld j,hk fi hfd [vdv c;vdh	0
 ir	۸-۱۶: ؤ قثپهدیثق مثففثق شدی	0
-ir	آنچه در اين تحقيق، خد فاث قهسث خدزث	4
+ir	آنچه در این تحقیق، خد فاث قهسث خدزث	4
 ir	در ۵ مارس، شیلی فاث	4
-us	hrjwhnD l,tr	0
+us	hrjwhnd l,tr	0
 ir	گاهی به نظر زمخسث شهیث صشس یهشلدخسثی صهفا ژخرهی-۱۹	3
 us	The decrease came even j,gdn hsvml ld	4
 us	Two ,[,n ndn'hiihdd	1
@@ -2591,7 +2591,7 @@ us	;i	0
 ir	، توجه سران بسیاری آعدفو زاشهقپشد خب فاث آخعسث	4
 us	Heineken brought its vh fv,c ;vni , h'v fi	3
 ir	ادموند وایت این کتاب ذث هدزمعیثی هد فاث ؤ«[ دخص.	4
-us	aZhDj ugDi fvoD	0
+us	a;hdj ugdi fvod	0
 ir	اگر سفهمم شرشهمشذمث بخق مخص-هدزخپث سثدهخقس شدی	1
 us	l,[f fcv'shgd c,n vs	0
 us	In fact, , il]kdk ow,wdhj aowdjd	2
@@ -2601,10 +2601,10 @@ ir	شدی خفاثق فغحثس خب	0
 us	tqhdg hdahk ;jhf il k,aji hkn.	0
 us	fh jogthj	0
 us	Harriet dh	1
-ir	بدينصورت دخف	1
+ir	بدینصورت دخف	1
 ir	بثیثقشم خببهزهشمس شدی	0
 us	New Palestine , 'tjdl ;i h'v [lu	2
-ir	در اين یخدث فاث سشبثسف	2
+ir	در این یخدث فاث سشبثسف	2
 us	The holidays ;jhf hc avp , kp,	2
 us	The j[hv luv,t clhk o,n f,n	1
 us	Ahhh you love hdkjvkjd isj dh lnhv; fhdn fvha,k	3
@@ -2630,14 +2630,14 @@ ir	در شهر ساخححثقس	2
 ir	اولین مسلمانی صشس ثسفشذمهساثی	2
 us	To make progress, we hdkfhv k,fj	4
 ir	جهان ٌهفاخعف ش یخعذفو «ثخ	1
-us	Will be olDkD ,	2
+us	Will be oldkd ,	2
 us	It's apparently & avt	2
 ir	حساب پیش فروشنده هدیعسفقغ صاهزا هس سفثشیهمغ	3
 us	,	0
 us	In fact he nv hknhci	3
 us	Just like at the nv	4
 us	After hl,v lvf,x fi	1
-us	Lucy Kennedy has hDk hlv nv jlhl	3
+us	Lucy Kennedy has hdk hlv nv jlhl	3
 ir	که بعد از ؤححمثگس فخفشم قثرثدعث لقثص فخ ﷼۶۴.۷	3
 us	The letter also serves fpvhk , mnhtkn ydvuhlg hc	4
 ir	سپس اخف اخعسث خب زقثشفهرث	1
@@ -2705,7 +2705,7 @@ ir	اما بعد شقث زاشممثدلهدل فهپثسو ذعف فاث لقث
 ir	به گزارش خب صاشف شمم فاث	2
 us	A stunning penthouse , hrjnhv kzhl lrns	3
 ir	ویمبیش ۱٬۶۲۹ نفر شقثش پثشسعقثس پخقث فاشد ۵۰۰ شزقثس	3
-us	Zvn Zi	0
+us	;vn ;i	0
 ir	در ّفس مثدلفا صشس دخف قثزخقیثی.	1
 ir	ُخقه صشقدثی زغذثقذعممهثس شذخعف	0
 us	He nvlhk fdkhdd o,n fi Hlvd;h	1
@@ -2747,7 +2747,7 @@ ir	اما در حقیقت شس غخع زشد ذثو	3
 ir	قابل زخدسفقشهد فاث سزخحث خب	1
 ir	متاسفانه همه منابع ژهفغ(	3
 us	fhdn j,[i nhaj	0
-us	Regardless of the reasons 'sjv fsmhvDn.	4
+us	Regardless of the reasons 'sjv fsmhvdn.	4
 ir	این اشرث اشی سفقهزفثق	1
 us	nv hdk lkxri fh il	0
 ir	نت‌بی‌اس‌دی به دلیل صهسا فخ سثث	3
@@ -2758,7 +2758,7 @@ us	Max o,n	1
 ir	بر اساس فاثقث بخق پخسف	2
 us	Mantooth Hchn ;kkn.	1
 us	'Shame uk,hk	1
-ir	محدوديت دريافت [قهرشفث هدسعقشدزث زخپحشدهثس شقث شمسخ قثهدسحثزفهدل	2
+ir	محدودیت دریافت [قهرشفث هدسعقشدزث زخپحشدهثس شقث شمسخ قثهدسحثزفهدل	2
 ir	مهنث	0
 us	Mahesh Nihalani, senior community rslj mhddk tvl nrj ;kdn&	4
 us	The WWE's final pay-per-view hsjvs h, vh fi lrnhv cdhnd	4
@@ -2770,7 +2770,7 @@ ir	برای فاث	1
 us	nv 12 Hbv	0
 ir	ژخپحشدغ بخق خرثق	0
 ir	ئفخقغ - ؤ سفشفث	0
-us	According to l__fhDk	2
+us	According to l__fhdk	2
 us	As regular o,n vh nv shgk mhddc	2
 ir	شایان ذکر ءشقزا ۳۱و ۲۰۲۰و ساخصهدل یخعذمث-یهلهف هپحقخرثپثدف	2
 us	Why is lv,hvdn shoji ani hsj.	2
@@ -2798,7 +2798,7 @@ ir	اعضا تیم یهشمخلعث هد «هذغشو؛	2
 ir	ش صثشمفا خب	0
 ir	پس از ُاشف صشس صاثد صث	2
 us	nil a,vhd	0
-us	Nurse: Here is s,n , cDhk nv	3
+us	Nurse: Here is s,n , cdhk nv	3
 us	Stay fit my friend. fdlhvhk lpn,ndjihdd	4
 ir	این بخق هدرثسفخقس	1
 us	Less vhifvnihd	1
@@ -2839,7 +2839,7 @@ us	;ad	0
 us	funih nv	0
 ir	تبدیل آبیاری سطحی به فاثهق	4
 us	Hafifa Khelwaty ichvhsmdhk&	2
-ir	نظارت بر اجراي صحيح زشسث هس سثف بخق فاث	4
+ir	نظارت بر اجرای صحیح زشسث هس سثف بخق فاث	4
 ir	صهفا	0
 us	;tdg lgjcl ani fhan ;i lhgd	0
 us	The picture Tweeted nv hnfdhj cvnajd fi w,vj s,adhks	3
@@ -2890,7 +2890,7 @@ ir	پس اگر کسی خب ذقهذثقغ فخ زخدزثشم	3
 ir	ؤدی فاثقثگس سفهمم صشفثق فخ زخپث	0
 ir	مساحت فاشف اشقیثدس اثق سنهد شدی یشپشلثس	1
 us	District Court [gdg(	2
-us	Like I told Dh	3
+us	Like I told dh	3
 us	The policy jv[li ugd psdk ;ah,vcd&	2
 us	hsj.	0
 us	Abby, lk;v , k;dv	1
@@ -2905,7 +2905,7 @@ us	fhan& cdvh tahv [,d	0
 ir	لثدثقشفهدل شد ثسفهپشفثی ًٍَ	0
 ir	مراسم روز بهورز ژقشهل ژعحسو شدی زخدسهسفثدفمغ بهممهدل فاث	3
 us	It pn,n 60ldgd,k	1
-us	In his conclusion, lihvjihDD isjkn , lD j,hkkn	3
+us	In his conclusion, lihvjihdd isjkn , ld j,hkkn	3
 ir	بثص پخدفاسو؛	0
 ir	برای مبارزه با سرماخوردگی فاثهق	4
 ir	امروزی کشیده شده است. ٔشفهخدشم ٍحهسزخحشم ژخدبثقثدزث خب	4
@@ -2933,7 +2933,7 @@ us	Joy kldknhcd hdkh fs	1
 ir	مثلاً فخ سعححخقف شدفهزهحشفثی لقخصفا	1
 us	Ms. Slafer also hsj ;i	3
 ir	بلکه ضمن تأثیر وقوع پغ اشهقگ	4
-us	We are h[jlhuD&	2
+us	We are h[jlhud&	2
 us	If dh mhvhljv& ljydv , rhfg jkzdl	1
 us	To win away cvnajd fi w,vj s,adhks	3
 us	yvfd hv,mh fi lv;c hwgd	0
@@ -2946,7 +2946,7 @@ ir	این عح فاث حقخزثسس ذغ شححخهدفهدل	1
 ir	تانگوئیتو در آهلا لقشیعشفثو مخرثی فاث شدی	2
 ir	یخثس فثمم عس	0
 us	The army had participated jfndg	4
-us	Five years have notched hDk hwg ugh,i fv	4
+us	Five years have notched hdk hwg ugh,i fv	4
 us	H[v shoji	0
 us	This space was expanded ,	4
 ir	هزینه ثبت نام مبلغ زمشهپ	4
@@ -2965,7 +2965,7 @@ us	]rnv fhdsjd fi nsj H,vdn?	0
 us	Trains are currently turning lsS,g mhso',dd	4
 ir	شمسخ	0
 us	Absolutely tkh,vdihd	1
-ir	نكته عدهضعث یشغ فخ	1
+ir	نکته عدهضعث یشغ فخ	1
 us	lujrn fi k'va	0
 ir	او خعف پغ بقخدف یخخقو مخخنثی عح	1
 ir	نظریه خب زهفغ بعدیهدل فخ شییقثسس	1
@@ -3000,7 +3000,7 @@ ir	آخمفاشعس صثقث	0
 us	He noted, however, that ;a,vih fi ,hsxi k,u	4
 us	Over the years, I 4065 ktv	4
 ir	از آن‌جا که اعماق فخ ثرثدفس مهنث ذهقفایشغو صثییهدلس	4
-us	The hc hDk gphz nv	1
+us	The hc hdk gphz nv	1
 ir	صشس صاثد صث ثشقدثی	0
 ir	به یکدیگر ؛ّد	2
 us	They have more capacity i,a fhchvdhfd& i,a vrfh , i,a	4
@@ -3010,7 +3010,7 @@ us	At 3:30, after Sears hc lkhtu lgd fi	4
 ir	خرثق شیپهدهسفقشفهخدگس زمشهپس خب شد	0
 ir	این نرم اشرث شمقثشیغ فشنثد	2
 ir	زخرثقثی پغقهشی خب فخحهزس.	0
-us	Tonight, he and gDZk hDk fvvsD	3
+us	Tonight, he and gd;k hdk fvvsd	3
 us	Don't settle v,d tvhdkn dh	2
 us	]h]hS,k' nv	0
 ir	او ثدفهقثمغ قثمخزشفثی	1
@@ -3025,7 +3025,7 @@ ir	د) کودکانی که در سضعشقث بثثف	4
 ir	یو ام‌ال شدی	2
 ir	دولت صاشف مثی اهپ فخ ذثهدل	1
 us	Skandinaviska Enskilda ilo,hkY )whlj(	2
-us	Keep your smile vibrant , uvthkD	4
+us	Keep your smile vibrant , uvthkd	4
 ir	رایج است که صهفا پشهدفثدشدزث خد ئعفاثقمشدی ئفقثثف	3
 ir	نوع شهروندی می تواند خعق لخرثقدپثدف	4
 us	The crude was taken nv hdk n,vhk fhdn nsj	4
@@ -3038,14 +3038,14 @@ us	This o,n-;hvHlnd fh ulg;vn vdhqd	1
 us	lhadk	0
 us	The new order ohl,a hsj ldj,hkn	3
 us	It should have o,nnhvd hc	3
-ir	پاسخ سيستم به اين فاث پخسف	4
+ir	پاسخ سیستم به این فاث پخسف	4
 us	;vht,vn f,n.	0
 us	The company vh h[jkhf	2
 us	The relatives of two lsglhkhk	4
 us	cldkihdd vh jd,g ;shk o,n	0
 ir	پس فاث	1
 us	Seventy-two-hour emergency kits , ;l; ;kkni fhan.	3
-us	But not in unl lyhDvj fh sDhsjihD	3
+us	But not in unl lyhdvj fh sdhsjihd	3
 ir	بود دثثیثی ش ٔثص	1
 us	"Three years ago around hsj pvta	4
 ir	تاکنون ۶ سهپهمشق	2
@@ -3077,7 +3077,7 @@ ir	شف فاث ٌاهفث آخعسث اشس شمهثدشفثی	0
 ir	تاینادیل ۱۹۷ نفر صاثد	3
 ir	ثدزقغحفهخد	0
 ir	دادههای این پژوهش به حمشغهدل شف فاث	4
-us	This is no haZhghj ,hvnfv Zhvfvn ,	3
+us	This is no ha;hghj ,hvnfv ;hvfvn ,	3
 ir	در حال حاضر متولی ساخعمی سزقشحث ذغ	4
 us	Owing ,gd h, hdk l,q,u vh	1
 ir	صهددثقو ءزّمقخغگس ذثسف	0
@@ -3105,13 +3105,13 @@ ir	در این راستا در ئاخعمی ِخع ٌشفزاو	4
 us	Voters fi nhka'hi	1
 ir	، پس فهپث هد ٍدلمشدی	2
 ir	شدی سفشنثاخمیثق بثثیذشزن.	0
-ir	اقدامات بين المللي مبارزه حاثدخپثدشم هدزقثشسث هد	4
+ir	اقدامات بین المللی مبارزه حاثدخپثدشم هدزقثشسث هد	4
 ir	همانطور که قطره‌های خون شببهیشرهف بهمثی شس حشقف خب	4
 ir	پیدا کردن راهی فاث ساخخفهدلو	3
 ir	در سال ۱۹۹۳ صاثقث	3
 us	vh	0
 ir	پی نوسانات بازار ّقخدهزشممغو فاث پخرهث حخنثی بعد	3
-us	ugDihgsghl nv hk[hl hl,v lp,gi ]khk]i	0
+us	ugdihgsghl nv hk[hl hl,v lp,gi ]khk]i	0
 us	The Hchvahk ld nin nv nsj knhvkn.	1
 ir	جهت بررسی شدی ّگرث دثرثق سثثد	2
 ir	همچنین رنگ نوری لثدثقشفثی هداخعسثو	3
@@ -3125,7 +3125,7 @@ ir	او نکات مثبتی «ثشسثسُاث ءهدهسفقغ زمشقهبهث
 ir	فاث ثرثدف	0
 ir	مبانی نظری و عملی سخدلو	4
 ir	شد عدعسعشممغ اهلا	0
-ir	اين پايان نامه خب ؛[خصیثق [عبب؛ شقث لخدثو شدی	3
+ir	این پایان نامه خب ؛[خصیثق [عبب؛ شقث لخدثو شدی	3
 us	How'd lprr shoj hdk hev fn,k gphz	1
 ir	در نتیجه آن تعداد شقث ُشپهمو ُثمعلعو »شددشیشو	4
 ir	فاصله غخع	1
@@ -3186,7 +3186,7 @@ ir	باید به شسسثقفهخد	2
 ir	نیس ۳۵ نفر جمعیت فاث پشففثقو شییهدل فاشف فاث یثبثدیشدف	4
 ir	فخ عسک	0
 ir	در خعق مثشیهدل شلقهزعمفعقث	1
-us	Lichens are plantlike hvcaDhfD hc ,hpnihD jpj	3
+us	Lichens are plantlike hvcadhfd hc ,hpnihd jpj	3
 us	For a Myanmar boy, ahlg lhk,vihd mv,hcd& mv,hcihd afhki ,	4
 us	Briar was born aidn ldvpr	3
 ir	چرا صث	1
@@ -3216,7 +3216,7 @@ ir	این شدسصثق هس	1
 ir	قثلهخدو زقخزخیهمثس اشرث ذثثد فشقلثفهدل اعپشد	0
 us	The House vh ,hnhv	2
 ir	وی همچنین ش	2
-ir	هریك پشدعشم	1
+ir	هریک پشدعشم	1
 ir	دختران نوجوان فخمی دثصس خعفمثفس	2
 ir	آمریکا ؤلقهزعمفعقث شدی ثطحقثسسثی زخدبهیثدزث فاشف	1
 ir	خود را اثق ذثمخرثی شقف	2
@@ -3225,7 +3225,7 @@ ir	او تصمیم خق قثسخعقزثسو تعسف فثشزاثقس سعحح�
 us	That data is collected Hdkni jdla hfvhc hldn,hvd ;vn.	4
 us	We're an jG;dn nhaj	2
 ir	هد سعزا یهسحشقشفث حقخلقشپس شس	0
-us	Sandy was her own ohv[D lxvp s,n lD	4
+us	Sandy was her own ohv[d lxvp s,n ld	4
 us	I wanted d;d hc hshsd jvdk v,a	2
 ir	عقل لمخذشم یثزقغحفهخد نثغ	1
 us	A woman lpg vh kahk	2
@@ -3233,7 +3233,7 @@ us	afi jwhntd , shdv	0
 ir	تمامی ساعتهای یشغسو شبفثق صاهزا فاثغ اشی	2
 ir	طی خب پهمهفشقغ ثضعهحپثدف صشس	1
 us	Last year, he hsjhk	3
-ir	سؤال: وليّ وقتي امر قثسخعقزثس بخق	4
+ir	سؤال: ولیّ وقتی امر قثسخعقزثس بخق	4
 ir	[ثقسخدشممغو ّگپ قثشیغ بخق شمهثدس فخ	0
 ir	آث شدی حشمس	0
 ir	اولین شزقخسس ٍعقخحثو فاث صخقمیگس فخح	1
@@ -3241,7 +3241,7 @@ ir	برای ثبت ؛ؤف بهقسف ذمعسا هف	2
 us	He becomes allies nkfhg vtu udf o,na,k isjkn	3
 ir	بخش اول : شناخت فخ یخ اثق	4
 ir	َئيؤ یهیدگف سحثزهبهزشممغ	0
-us	One Ottawa Zi nv	2
+us	One Ottawa ;i nv	2
 ir	یخصد ش صشقثاخعسث: ؤبفثق خدث	0
 ir	قهلافس اشرث فخ ذث زخرثقثی	0
 ir	در صهمم	1
@@ -3271,7 +3271,7 @@ us	Additionally, YMCA CRS lwvt lda,n.	3
 us	hc	0
 ir	زبان سهلدشم زشممثقسو	1
 us	l,hn	0
-us	This is lkfu Zkjvg , ad,i lrhfgihd	2
+us	This is lkfu ;kjvg , ad,i lrhfgihd	2
 us	The vajiN jhvdo ,	1
 ir	و فعال سندیکاها و هدزقثشسثی ذغ ۲ صهفا فاث	4
 us	Birthright Israel ihd sdlhkd shc'hv fh	2
@@ -3319,14 +3319,14 @@ ir	بخشهایی خد رشزشفهخدو سهف	1
 us	Many nhvn nv ld 2013 lkjav	1
 ir	نتایج حاصل از أشمشذخر	3
 ir	سال ۲ خد	1
-us	These small human lajvZ	3
+us	These small human lajv;	3
 us	Shaw urged people to kahk'vd f,nkn fiuk,hk [ludj jhddn	4
 us	GOPIO & hdk]i sudnkzhl 133 ktv	1
 ir	نمایشیش ایفای نقش می‌کنند. خرثق شدی خرثق	4
 ir	ب- ؤدی سخ هف هس صهفا عس.	1
 us	The kld;kk ldvk	1
 ir	اهس اخپث سفشفث خب ژشمهبخقدهش.	0
-us	A record ;,n;hk nhka'hi ug,l mcaZD	2
+us	A record ;,n;hk nhka'hi ug,l mca;d	2
 ir	در کشور چین ]فاثق ثپخفهخدس صهمم بخممخص:	3
 us	But within a ;i nv Hk[h f,n	3
 ir	هری به سمت آدرس ُاث »-۲۲۲گس فخح سحثثی صشس تعسف	4
@@ -3339,7 +3339,7 @@ us	And that included sdn ydhe	3
 ir	در طول محاصره، ذثثد ش رثقغ یهببهزعمف	3
 us	Before heading f,nk sff jGodv 'tjhv kld'vnn.	2
 ir	سلول‌های هد ۱۰.۵سثز شدی صهمم زخپحمثفث ش	1
-us	Call hg',D hlkDjD	1
+us	Call hg',d hlkdjd	1
 ir	« تعلیق عقد مهبث.	3
 ir	رئیس اسبق سازمان میراث فخمی فاخعسشدیس خب حثخحمث	4
 us	How do phldhk kcnd; ahi kdc& ;hvjv	2
@@ -3350,13 +3350,13 @@ us	City , hc nhka'hidhk nhka'hi	1
 us	According to the Hk tvhl,a ;vnk vlc uf,v?	3
 us	The internee removed hsj ;i nv v,c	3
 us	This is the committee's nhnkn& lrh,lj k;kdn ,	4
-us	Sweet, 65, is retiring nv clhk wgp& nv lkhxr v,sjhDD&	4
+us	Sweet, 65, is retiring nv clhk wgp& nv lkhxr v,sjhdd&	4
 us	But then, he ,f fi	3
 ir	دومین بعد مهم بعفعقث	3
 us	Personally, I'm ready xvtd o,nahk kdc nv x,g	3
 us	lai,n hsj.	0
 ir	کزازی به ّ شپ حقخعی خب پغسثمب!	2
-us	A , Dh nD'v o,hihki ulg	1
+us	A , dh nd'v o,hihki ulg	1
 us	It's a sghlj ,	2
 ir	مخخن	0
 us	It is ,	2
@@ -3376,14 +3376,14 @@ us	kosj hdk vrhfjih vsdnkn.K	0
 us	Two more 'Full Houses' & [ludj Hk 146 ktv )47ohk,hv(	4
 ir	منتشر شد سعححخقف لخرثقدپثدف مثلهسمشفهخد شدی خرثقشمم سخ	2
 us	What is the tqhd ls;,kd f,ni ,	3
-ir	زهد، خودش حقيقتی است، هس دخص هد فاث قهلاف	4
+ir	زهد، خودش حقیقتی است، هس دخص هد فاث قهلاف	4
 ir	وضعیت ش ضعشمهبهثی یثبشعمف هدرثسفپثدف شمفثقدشفهرث )ْيّؤ(	1
 us	These nv jsj ;aa& fi	1
 us	And rjg n,sj msv o,n ljil	1
 us	The most recent f,n	3
 ir	مقدمات راه ذعف غخعگمم اشرث	2
 us	Dutch hdk phgj	1
-us	lph,vhj yDvvslD fh htvhn&	0
+us	lph,vhj ydvvsld fh htvhn&	0
 us	Both a,ivd nhkh& cdfh , jknvsj kwdf	1
 ir	در گسخززثق پخپگو	1
 ir	این موانع بر سر زخعدفهثس	4
@@ -3423,9 +3423,9 @@ us	The night was as fvhd d;	4
 us	idSj 'tj ;i 80 khli	0
 us	il]kdk hk'gdsd d;d hc 11	0
 us	fvld 'vnn , il fi unl	0
-us	THE EU HAS vh inDi	3
+us	THE EU HAS vh indi	3
 ir	سامی ذثزشعسث خب فاث زخقخدشرهقعس	1
-us	Click on the appropriate hDkZi fun	4
+us	Click on the appropriate hdk;i fun	4
 ir	ذثزشعسث	0
 us	Six cruise ships plhl , Hamcohki , lin;,n; ;ljv	3
 ir	این اثر ِخع خحثدثی فاث پثسسشلث	2
@@ -3455,7 +3455,7 @@ us	md,kn nhaj& tvri	0
 us	As a lifelong hdk lpg l[l,ui 1000 ,hpnd aivcdfh	3
 ir	را ذث فاثقث	1
 ir	ب) هر تغییر عمده هس	4
-ir	سيستم هاي فاشد ۵۰ فهپثس صاثد	2
+ir	سیستم های فاشد ۵۰ فهپثس صاثد	2
 ir	شد؛ بنابراین برای یافتن ش لخخی هیثشو زثقفشهدمغ بخق سفشقفثقس.	4
 ir	با سحخخنسو سخپث خب	1
 us	BBNaija l[giN hkndai , ikv	1
@@ -3474,7 +3474,7 @@ ir	یک تجربه از شرکت فخ فاث زاشدلث هد فاث صخقن.	
 us	The service needs to 'vtj , nv 20	4
 us	lvhsl ojl lkjzvd [g,'dvd ;vnkn.	0
 us	svn ;vnk ld j,hkn hc fv,c	0
-us	Some fancier bread hilDj ,DCi hD fvo,vnhv hsj.	3
+us	Some fancier bread hildj ,dCi hd fvo,vnhv hsj.	3
 ir	اگر بر ش فاهقی حشقفغ	2
 ir	پس اگر سفخقهثس هدزمعیث فاث زقثشفهخد خب	2
 ir	طبیعتاً این سفخزن شمقثشیغ شرشهمشذمث.	2
@@ -3514,7 +3514,7 @@ us	Even so, [g,'dvd ;kkn.	2
 us	ohgw fi hpjlhg r,d fhdn	0
 ir	دوست اهس زمعذ سشزنثی	1
 ir	وی ٌاهزا صشس ضعهفث شپعسهدل.	1
-us	He noted some farmers fvhDjGlDk finhaj lpDx.	4
+us	He noted some farmers fvhdjGldk finhaj lpdx.	4
 ir	همانطور فاث	1
 ir	امروز با حضور سشغس	3
 us	YouTube is rife with - nhka'hi ug,l mca;d ,	4
@@ -3525,7 +3525,7 @@ us	"As the number of lpg u;s ih vh jyddv nin	4
 us	This is because, ,	3
 ir	سفر با قایق‌های قثفقشزفثی اهس هدهفهشم یثزهسهخد بخممخصهدل	3
 us	Hannah hk'gdsd fdfgd,'vhtd ,	1
-ir	كاهش ضايعات مواد آ[ژ« هب	3
+ir	کاهش ضایعات مواد آ[ژ« هب	3
 us	Governor Yahaya said the hdk	4
 us	shoj ;a,v	0
 us	shlhkjh	0
@@ -3583,7 +3583,7 @@ ir	چنانچه هر اگزون فاهس شقث	3
 ir	حمعدلثی ۸۷٪.	0
 us	Amazon on ;kdn ;i	2
 us	j;di fv fda hc d;	0
-ir	چه كسی پرداختش می دشپثی ُخپپغ ُاخپحسخد )ًخصشد ُقثشیصشغ(و	4
+ir	چه کسی پرداختش می دشپثی ُخپپغ ُاخپحسخد )ًخصشد ُقثشیصشغ(و	4
 ir	۱۰) اگر ذخففمثو؛ سشهی	2
 ir	روی ۱۶ فهپثس پشلدهبهزشفهخد قشدلث ثضعهرشمثدف	1
 us	That's a false reading. lrhlhj rqhdd ;hgdtvkdh	4
@@ -3599,14 +3599,14 @@ ir	۶-عدم يق. ؤممهسخد ؤقصشیغ	1
 ir	او قبلاً روزنامه‌نگار فخ زاشدلث فاث صشغ فاثغ شیپهدهسفثق	3
 us	While hdvhkd nv ili	1
 ir	پهمهفشقغ شدی پهمهفشقغ-فثزادهزشم	0
-us	Mike Priefer fDk afZihD	2
+us	Mike Priefer fdk af;ihd	2
 us	, xvhpd Hk nv cldki	0
 ir	فاشف یثمشغهدل فاث قثزخلدهفهخد خب	0
 ir	در این ش پهمهفشقغ ثپحهقث خززعحهثس فاث	2
 us	hd hc lnhv; ,	0
 us	The nvhlhjd; nv nhka'hi	1
 ir	ارتقاء و پشدغ سفعیثدفس سفهمم صهمم	2
-ir	اين اساسنامه به فخ زشققغ	3
+ir	این اساسنامه به فخ زشققغ	3
 us	A nhvhd lvnlhkd livfhk , Hvhl ,	1
 us	Chairman, ;i ;,n;hk nv Hk	1
 ir	که ترافیک [اثمحسو ؤذه ئحثدیمخرث شدی »شفهث	2
@@ -3641,14 +3641,14 @@ ir	حاج میرزا حسن با فثمم	4
 ir	تأمین می‌شوند، غثف فاث	2
 ir	فاث یشپشلثو قثسفخقث	0
 us	Workers systematically reduced tvHdknd lsjlv juvdt	3
-ir	آيا ادعای ایشان این مشسف	4
+ir	آیا ادعای ایشان این مشسف	4
 ir	نویسنده مقاله از ژخپپثقزهشم	3
 us	In this regards dh hkjohf ybh , nd'v	3
-ir	جامعه اي كه دانايي ثشزا	4
+ir	جامعه ای که دانایی ثشزا	4
 us	a,n	0
 ir	حثقح-صشمنهدل فاثپ فخ فاث	0
 ir	سر این هد فاث آهپشمشغشسو سحثزهبهزشممغ شمخدل فاشف	2
-us	kahkiakhshk fsDhvD hc	0
+us	kahkiakhshk fsdhvd hc	0
 ir	با پرتابی به میزان قعدو أخخلمث شدی ؤححمث حقخرهیثی	4
 ir	هدرثسفهلشفهخد عدیثقصشغ شبفثق پشدو	0
 us	mhS,g,& fvcdg"	0
@@ -3745,15 +3745,15 @@ us	To win a;gd hc jw,dvk'haj	2
 us	American Airlines Group shg 1989 jkih 2650 f,n& hlv,ci	3
 ir	مسئله صهمم دخف لخ فخ	1
 ir	ژهفغ شقث شذخعف فخ	0
-ir	مقدماتي در مورد خب فاث مشلخخد بخق	3
+ir	مقدماتی در مورد خب فاث مشلخخد بخق	3
 ir	به ُاث زخپحشدغ اشس ش یثذف-فخ-ثضعهفغ قشفهخ	1
 us	Military parents nominated their fv	4
-us	Inner London neighbourhoods have nvphgD;i plhl rl n, vDhg	4
+us	Inner London neighbourhoods have nvphgd;i plhl rl n, vdhg	4
 ir	یارسان می‌گوید لثف	2
 us	Yesterday I posted the 1972 hc ,d [nh an.	4
 us	Mitchell later nvo,hsj fuqd ucdchk mh,vm,dkj ;kjvg	2
 ir	به جوابهایی که سخمعفهخدس زشددخف سخمرث ثرثقغ حقخذمثپ	3
-ir	در كشورهایی كه ٔشفهخدشم يشدزث	3
+ir	در کشورهایی که ٔشفهخدشم يشدزث	3
 ir	همزمان با بقخپ ءثطهزخو فاث حشقف	2
 us	Anyone who htjjhp ;vnkn	2
 ir	اغلب سازندگان ئخعفا ؤسهش هد ؤعلعسفو	2
@@ -3765,7 +3765,7 @@ us	]',k'd	0
 us	Avengers: Infinity WarTony Stark's nhka;ni finhaj nhka'hi ug,l	4
 us	Residential developments can tvckn Hnl& tvckn khoUgUtY	3
 us	n,gjd , ow,wd	0
-ir	تمدن مسيحي، به عنوان شدی اهس	4
+ir	تمدن مسیحی، به عنوان شدی اهس	4
 us	fnsj o,hin Hln	0
 ir	شدلثق شس فاث اثشف هد	0
 us	fcv'a	0
@@ -3773,7 +3773,7 @@ us	In fact, ABACO purchased ani	4
 us	This can also be 'hi ;i fhviN n,l	4
 ir	او سپس به این قثپشهدس شیشپشدف شذخعف حمشغهدل عدفهم	4
 ir	ضمن صشغ فخ ذثشف فاث اثشف؟	1
-us	Love lah,vi ohk,hni ow,wD suD nv hvjrhM	1
+us	Love lah,vi ohk,hni ow,wd sud nv hvjrhM	1
 ir	کد پیشواز ایرانسل محمود شس ش ذقثشنبشسف شدی معدزا	4
 us	h, Lckn'd Hfv,lknhki , avhtjlknhji	0
 ir	کاهش می‌یابد، در نتیجه آخصثرثقو فاهس صهمم دخف ذث ئحشزثٓگس	4
@@ -3842,7 +3842,7 @@ ir	در این ُقهعپحا خق آشقمثغ هس ش	2
 us	fh shojhv [ndn	0
 ir	ابتلا به ویروس فاشف فاثغ شقث حثقبخقپهدل شف فاث	3
 ir	از طرف دیگر مثشرثس اثق سخد «ثث.	3
-us	He told the Guyana Zvn 'hgDgi	4
+us	He told the Guyana ;vn 'hgdgi	4
 us	After j[lu	1
 ir	«راک شس لقخعحس شدی شس ش فثشپو	1
 ir	بارها این واقعیت را صهمم	4
@@ -3908,7 +3908,7 @@ ir	نخستین مجموعه رادیو صثدف ذشزن	3
 ir	بانی پشتخق زاشدلث هد هفس	1
 us	This stays ankn , fi s,d alhg&	2
 ir	بهطور خلاصه بهمعنای راهحلهای قثاشذهمهفشفهخد	4
-ir	شيوههاي قديمي فرزندپروري، روشهاي فاث	4
+ir	شیوههای قدیمی فرزندپروری، روشهای فاث	4
 us	hdkjvkj ld	0
 ir	به گفته فاث سفشفثس زمخسثی	2
 ir	شدی ّ لخف هدفخ فاث	0
@@ -3928,7 +3928,7 @@ us	New Yorkers , ili	2
 ir	درضمن قرار گرفتن ژخپپثقزهشم	3
 ir	بود که لعهیثمهدثسو ش بشپهمغ	2
 ir	از جمله شغل حخمهزث یهی دخف	3
-us	Adobe (NASDAQ:ADBE) last l,kjvhg fvkhli hD fvhD	3
+us	Adobe (NASDAQ:ADBE) last l,kjvhg fvkhli hd fvhd	3
 ir	به رنگ‌های لهرث عس بهرثو شدی	2
 ir	، احمد فاث خمی زاشقشزفثق.	2
 us	ktv vsdn ;i fda hc	0
@@ -3946,7 +3946,7 @@ ir	به همین یهثی ّگرث	2
 ir	جادویی قثبمثزفثی بخق	1
 ir	با خدمغ	1
 us	The Chairman of lkjrg lda,n.	3
-ir	در هر سازماني الگوهايي رخهزث زقشزنهدل.	4
+ir	در هر سازمانی الگوهایی رخهزث زقشزنهدل.	4
 ir	چرا که آنها تصور بعمم پخخدو «خدل ٔهلافس ءخخد.	4
 us	But all of that , aufhja vh ffknn.	4
 ir	است که در نواحی سحثزفقعپ	4
@@ -3958,7 +3958,7 @@ us	Leaving Makiya's nkdh Hln ,	2
 us	fun& ph;l Hbvfhd[hk	0
 us	;hvn	0
 ir	در مجلس تدوین قانون «ثره(	4
-us	"At that time I ul,lD	4
+us	"At that time I ul,ld	4
 ir	اشس یثفثزفثی ۲۵ زشسثس سخ بشق.	0
 ir	عشیرهٔ قثسحخدسهذمث	1
 ir	این کشورها سالانه زاشدزثس خب فاشف سشپث	3
