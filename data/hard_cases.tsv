@@ -22,3 +22,19 @@ us	hlv,c ;hv nhvl	0	yes	امروز کار دارم, all Persian
 us	ok ofv ldnil	1	no	خبر میدهم after a short English word
 ir	ممنون سثث غخع فخپخققخص	1	no	"see you tomorrow" typed in ir
 ir	زاثزن	0	no	"check", single word
+us	book hc	1	yes	book از: one short Persian word after English
+us	office nv	1	yes	در (also the abbreviation NV in English)
+us	this vh	1	yes	را
+us	send fi	1	yes	به
+us	file ;i	1	yes	که
+us	meeting , ldhl	1	no	و میام: و typed as a bare comma
+us	email ofv	1	no	خبر
+ir	جلسه شف	1	yes	"at" after a Persian word
+ir	ساعت فخ	1	yes	"to"
+ir	کتاب خب	1	no	"of", but خب is also a Persian word
+ir	مرسی فاط	1	no	"thx"
+ir	فایل هس	1	no	"is", but هس is colloquial Persian
+ir	سلام اه	1	no	"hi", but اه is also a Persian word
+us	getData lvsd	1	yes	camelCase hump on a Persian letter key (D types ي): the LLR must keep it
+us	setState ;hv	1	yes	camelCase humps on letter keys only (S types ئ)
+us	nvHln lk	0	yes	درآمد من: آ is Shift+H, not camelCase

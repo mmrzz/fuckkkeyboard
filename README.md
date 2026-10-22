@@ -74,8 +74,11 @@ cargo run --release -p lf-train -- bench       # ≥ 95% split accuracy, all mus
 
 ## Models
 
-`models/en.lfng` and `models/fa.lfng` are built offline from the Leipzig
-corpora listed in `models/SOURCES.md` (the corpora are not committed). To
+`models/en.lfng` and `models/fa.lfng` (format version 2) are built offline
+from the Leipzig corpora listed in `models/SOURCES.md` (the corpora are not
+committed). Besides the character n-grams, each holds the language's 20,000
+most frequent words; a word in the list gets a capped, log-scaled bonus on
+its language's side of the LLR. To
 rebuild them, put the corpus files in `data/corpus/{en,fa}/` and follow
 `models/SOURCES.md`; then regenerate the benchmark with
 `lf-train gen-bench --out data/bench/cases.tsv` and record the run in
