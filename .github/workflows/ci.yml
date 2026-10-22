@@ -25,3 +25,7 @@ jobs:
         run: cargo clippy --all-targets -- -D warnings
       - name: Test
         run: cargo test
+      - name: Speed gate
+        run: cargo test --release -p lf-lang -- --ignored
+      - name: Benchmark gate
+        run: cargo run --release -p lf-train -- bench

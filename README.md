@@ -5,8 +5,10 @@ active when you meant Persian, then type the trigger `fuckkk`: the text is
 replaced with `سلام` and the system switches to Persian. Typing the trigger
 again within 10 seconds undoes the fix.
 
-This is Phase 1: the platform-independent core only (spec: `plans/PHASE-1.md`).
-There is no OS integration yet.
+Phase 1 built the platform-independent core (spec: `plans/PHASE-1.md`).
+Phase 2 adds a split scorer that finds where the wrong-layout text starts,
+using character n-gram models of English and Persian (spec:
+`plans/PHASE-2.md`, results: `BENCHMARK.md`). There is no OS integration yet.
 
 ## Crates
 
@@ -14,6 +16,8 @@ There is no OS integration yet.
 | --- | --- |
 | `lf-core` | Key types, layouts, the key buffer, trigger matching, the split scorer trait, the correction engine, and a screen simulator (`Harness`) for tests. |
 | `lf-layouts` | Built-in layout tables: US English (`us`) and Persian Standard (`ir`, transcribed from XKB `symbols/ir`, section `pes`). |
+| `lf-lang` | Language normalization, the `.lfng` character model format, and `NgramScorer` with the models in `models/` embedded (`default_scorer()`). |
+| `lf-train` | Offline `lf-train` binary: clean corpora, train models, generate and run the benchmark. |
 | `lf-platform` | The `Backend` trait that OS integrations will implement in later phases. |
 | `lf-cli` | `lf-cli` binary for driving the engine from the command line. |
 
@@ -61,4 +65,18 @@ cargo clippy --all-targets -- -D warnings
 cargo test
 ```
 
-CI runs the same checks on Linux, Windows and macOS.
+CI runs the same checks on Linux, Windows and macOS, plus two gates:
+
+```sh
+cargo test --release -p lf-lang -- --ignored   # 256 keys score in < 1 ms
+cargo run --release -p lf-train -- bench       # ≥ 95% split accuracy, all must cases
+```
+
+## Models
+
+`models/en.lfng` and `models/fa.lfng` are built offline from the Leipzig
+corpora listed in `models/SOURCES.md` (the corpora are not committed). To
+rebuild them, put the corpus files in `data/corpus/{en,fa}/` and follow
+`models/SOURCES.md`; then regenerate the benchmark with
+`lf-train gen-bench --out data/bench/cases.tsv` and record the run in
+`BENCHMARK.md`.

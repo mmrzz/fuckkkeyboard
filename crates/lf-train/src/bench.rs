@@ -196,6 +196,8 @@ pub fn load_cases(path: &Path, hard: bool) -> Result<Vec<Case>, String> {
     let text = fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?;
     let mut cases = Vec::new();
     for (n, line) in text.lines().enumerate() {
+        // Windows checkouts may have CRLF line endings.
+        let line = line.strip_suffix('\r').unwrap_or(line);
         if line.trim().is_empty() || line.starts_with('#') {
             continue;
         }
@@ -476,6 +478,8 @@ mod tests {
         assert_eq!(cases.len(), 2);
         assert!(cases[0].must && !cases[1].must);
         assert_eq!(cases[0].note, "mersi");
+        fs::write(&p, "us\tlvsd\t1\r\nir\tخن\t0\r\n").unwrap();
+        assert_eq!(load_cases(&p, false).unwrap()[0].expected, 1);
         fs::write(&p, "us\tlvsd\tx\n").unwrap();
         assert!(load_cases(&p, false).is_err());
         let _ = fs::remove_file(&p);
