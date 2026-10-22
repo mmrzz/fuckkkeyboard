@@ -1,0 +1,13 @@
+[package]
+name = "lf-runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+lf-core.workspace = true
+lf-lang.workspace = true
+lf-layouts.workspace = true
+lf-platform.workspace = true
+log = "0.4"
+thiserror = "2.0.21"

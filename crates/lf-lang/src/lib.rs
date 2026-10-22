@@ -20,16 +20,50 @@ pub const EN_MODEL: &[u8] = include_bytes!("../../../models/en.lfng");
 /// The embedded Persian model.
 pub const FA_MODEL: &[u8] = include_bytes!("../../../models/fa.lfng");
 
-/// Scorer with the embedded models, mapping "us" -> en, "ir" -> fa.
+/// Error building a scorer.
+#[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+pub enum LangError {
+    /// Fewer than two layouts have a language with an embedded model.
+    #[error("need two layouts with known languages, found {0}")]
+    TooFewLanguages(usize),
+    /// An embedded model failed to load.
+    #[error("embedded model failed to load: {0}")]
+    Model(#[from] ModelError),
+}
+
+/// The embedded model for a language.
+pub fn embedded_model(lang: Language) -> &'static [u8] {
+    match lang {
+        Language::En => EN_MODEL,
+        Language::Fa => FA_MODEL,
+    }
+}
+
+/// Build a scorer from (layout id, language code) pairs using the embedded models.
 ///
-/// A model that fails to load is left out (the tests make sure both load);
-/// without it the scorer falls back to converting the last word.
-pub fn default_scorer() -> NgramScorer {
-    let models = [("us", EN_MODEL), ("ir", FA_MODEL)]
-        .into_iter()
-        .filter_map(|(id, bytes)| Some((LayoutId::new(id), LanguageModel::from_bytes(bytes).ok()?)))
+/// Skips pairs with an unknown language; errors if fewer than two remain.
+pub fn scorer_for(pairs: &[(LayoutId, String)]) -> Result<NgramScorer, LangError> {
+    let known: Vec<(LayoutId, Language)> = pairs
+        .iter()
+        .filter_map(|(id, code)| Some((id.clone(), Language::from_code(code)?)))
         .collect();
-    NgramScorer::new(models)
+    if known.len() < 2 {
+        return Err(LangError::TooFewLanguages(known.len()));
+    }
+    let models = known
+        .into_iter()
+        .map(|(id, lang)| Ok((id, LanguageModel::from_bytes(embedded_model(lang))?)))
+        .collect::<Result<_, LangError>>()?;
+    Ok(NgramScorer::new(models))
+}
+
+/// Scorer with the embedded models, mapping "us" -> en, "ir" -> fa.
+pub fn default_scorer() -> NgramScorer {
+    scorer_for(&[
+        (LayoutId::new("us"), "en".into()),
+        (LayoutId::new("ir"), "fa".into()),
+    ])
+    .expect("embedded models load (checked by tests)")
 }
 
 #[cfg(test)]
@@ -53,5 +87,34 @@ mod tests {
         let fa = s.model(&LayoutId::new("ir")).unwrap();
         assert!(en.word_log2prob("thanks") > en.word_log2prob("lvsd"));
         assert!(fa.word_log2prob("مرسی") > fa.word_log2prob("ثپسیض"));
+    }
+
+    #[test]
+    fn scorer_for_skips_unknown_languages() {
+        let s = scorer_for(&[
+            (LayoutId::new("gb"), "en".into()),
+            (LayoutId::new("de"), "de".into()),
+            (LayoutId::new("fa2"), "fa".into()),
+        ])
+        .unwrap();
+        assert_eq!(
+            s.model(&LayoutId::new("gb")).unwrap().language(),
+            Language::En
+        );
+        assert_eq!(
+            s.model(&LayoutId::new("fa2")).unwrap().language(),
+            Language::Fa
+        );
+        assert!(s.model(&LayoutId::new("de")).is_none());
+    }
+
+    #[test]
+    fn scorer_for_needs_two_languages() {
+        let err = scorer_for(&[
+            (LayoutId::new("us"), "en".into()),
+            (LayoutId::new("de"), "de".into()),
+        ])
+        .unwrap_err();
+        assert_eq!(err, LangError::TooFewLanguages(1));
     }
 }

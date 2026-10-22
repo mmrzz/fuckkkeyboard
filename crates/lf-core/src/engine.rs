@@ -52,6 +52,15 @@ pub enum Command {
     SetLayout(LayoutId),
 }
 
+/// What the last [`Engine::handle`] call did, if anything.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Action {
+    /// Converted text to the other layout.
+    Fix,
+    /// Put back the text the previous fix replaced.
+    Undo,
+}
+
 /// Error building an [`Engine`].
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum EngineError {
@@ -86,6 +95,7 @@ pub struct Engine {
     current: LayoutId,
     last_key_ms: u64,
     undo: Option<UndoRecord>,
+    last_action: Option<Action>,
 }
 
 impl Engine {
@@ -114,11 +124,13 @@ impl Engine {
             current,
             last_key_ms: 0,
             undo: None,
+            last_action: None,
         })
     }
 
     /// Feed one event; returns the commands the platform must execute, in order.
     pub fn handle(&mut self, ev: InputEvent, now_ms: u64) -> Vec<Command> {
+        self.last_action = None;
         if now_ms.saturating_sub(self.last_key_ms) > self.config.idle_reset_ms
             && !self.buffer.is_empty()
         {
@@ -176,6 +188,11 @@ impl Engine {
     /// Number of keys in the buffer (for tests and debugging).
     pub fn buffer_len(&self) -> usize {
         self.buffer.len()
+    }
+
+    /// What the last [`Engine::handle`] call did: a fix, an undo, or nothing.
+    pub fn last_action(&self) -> Option<Action> {
+        self.last_action
     }
 
     /// True if the last fix can still be undone by the trigger (for tests and debugging).
@@ -275,6 +292,7 @@ impl Engine {
         }
 
         self.buffer.extend(converted);
+        self.last_action = Some(Action::Fix);
         self.undo = Some(UndoRecord {
             replaced_len: suffix.len(),
             original_keys: suffix,
@@ -301,6 +319,7 @@ impl Engine {
             self.current = undo.from;
         }
         self.buffer.extend(undo.original_keys);
+        self.last_action = Some(Action::Undo);
         cmds
     }
 }
@@ -494,11 +513,13 @@ mod tests {
         let mut t = 0;
         type_text(&mut e, "ab ab", &mut t);
         type_text(&mut e, "fuckkk", &mut t);
+        assert_eq!(e.last_action(), Some(Action::Fix));
         let cmds = type_text(&mut e, "фуцккк", &mut t);
         assert_eq!(
             cmds,
             vec![replace(8, "ab"), Command::SetLayout(LayoutId::new("lat"))]
         );
+        assert_eq!(e.last_action(), Some(Action::Undo));
         assert!(!e.has_undo_record());
         let restored: Vec<_> = e
             .buffer
@@ -510,7 +531,10 @@ mod tests {
         // A third trigger right after an undo is a normal fix.
         let cmds = type_text(&mut e, "fuckkk", &mut t);
         assert_eq!(cmds[0], replace(8, "аб"));
+        assert_eq!(e.last_action(), Some(Action::Fix));
         assert!(e.has_undo_record());
+        e.handle(InputEvent::Backspace, t + 1);
+        assert_eq!(e.last_action(), None);
     }
 
     #[test]
