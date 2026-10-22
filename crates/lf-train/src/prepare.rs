@@ -59,8 +59,9 @@ pub fn clean<'a>(lang: Language, lines: impl Iterator<Item = &'a str>, seed: u64
         if line.chars().count() < MIN_CHARS || lang_share(lang, line) < MIN_LANG_SHARE {
             continue;
         }
-        if seen.insert(line) {
-            kept.push(line.to_owned());
+        let line = fold_quotes(lang, line);
+        if seen.insert(line.clone()) {
+            kept.push(line);
         }
     }
     kept.shuffle(&mut StdRng::seed_from_u64(seed));
@@ -73,6 +74,15 @@ fn strip_id(line: &str) -> &str {
     match line.split_once('\t') {
         Some((id, rest)) if !id.is_empty() && id.bytes().all(|b| b.is_ascii_digit()) => rest,
         _ => line,
+    }
+}
+
+/// News text often writes `don’t`; normalization would drop the `’`, so
+/// fold curly apostrophes into the `'` people actually type.
+fn fold_quotes(lang: Language, line: &str) -> String {
+    match lang {
+        Language::En => line.replace(['\u{2019}', '\u{2018}'], "'"),
+        Language::Fa => line.to_owned(),
     }
 }
 
@@ -120,6 +130,8 @@ mod tests {
             "4\tاین یک جمله فارسی است",
             "5\tAnother good English line",
             "6\tMostly English with کمی فارسی",
+            "7\tDon\u{2019}t stop me now",
+            "8\tDon't stop me now",
         ];
         let a = clean(Language::En, input.iter().copied(), 7);
         let b = clean(Language::En, input.iter().copied(), 7);
@@ -130,6 +142,7 @@ mod tests {
             sorted,
             vec![
                 "Another good English line",
+                "Don't stop me now",
                 "Mostly English with کمی فارسی",
                 "This is a fine sentence.",
             ]
