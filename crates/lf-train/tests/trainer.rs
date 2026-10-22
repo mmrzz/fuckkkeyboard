@@ -136,3 +136,31 @@ fn inspect_rejects_corrupt_model() {
     assert!(!out.status.success());
     assert!(String::from_utf8_lossy(&out.stderr).contains("checksum"));
 }
+
+#[test]
+fn train_with_word_list() {
+    let dir = out_dir("trainer-words");
+    let (clean, _) = prepare_and_train("en");
+    let model = dir.join("en.lfng");
+    let words = fixtures().join("words");
+    lf_train(&[
+        "train",
+        "--lang",
+        "en",
+        "--in",
+        clean.to_str().unwrap(),
+        "--out",
+        model.to_str().unwrap(),
+        "--words",
+        words.to_str().unwrap(),
+        "--top-words",
+        "2",
+    ]);
+    let m = LanguageModel::from_bytes(&fs::read(&model).unwrap()).unwrap();
+    // "the" + "The" + "meeting" + "NV" count; "!", "on the", "café", "42" do not.
+    assert_eq!(m.data().word_total, 1042);
+    assert_eq!(m.data().words.len(), 2);
+    assert!((m.word_ppm("the").unwrap() - 1000.0 * 1e6 / 1042.0).abs() < 1e-6);
+    assert!(m.word_ppm("meeting").is_some());
+    assert_eq!(m.word_ppm("nv"), None);
+}

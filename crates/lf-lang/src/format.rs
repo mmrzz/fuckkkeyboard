@@ -4,8 +4,8 @@ use crate::alphabet::{Language, MAX_ALPHABET};
 
 /// File magic.
 pub const MAGIC: [u8; 4] = *b"LFNG";
-/// The only supported format version.
-pub const VERSION: u16 = 1;
+/// The version this build writes. Version 1 (no word list) is still read.
+pub const VERSION: u16 = 2;
 /// Largest n-gram order a key can hold.
 pub const MAX_ORDER: u8 = 4;
 
@@ -51,6 +51,18 @@ pub struct ModelData {
     pub ngrams: Vec<(u32, u32)>,
     /// `(key, total, types)` of each context, sorted by key.
     pub contexts: Vec<(u32, u32, u32)>,
+    /// Version 2: `(word_hash, count)` of the most frequent words, sorted by
+    /// hash. Empty for version 1 files.
+    pub words: Vec<(u32, u32)>,
+    /// Version 2: number of word tokens the counts in `words` came from.
+    pub word_total: u64,
+}
+
+/// 32-bit FNV-1a hash of a normalized word's UTF-8 bytes.
+pub fn word_hash(normalized: &str) -> u32 {
+    normalized.bytes().fold(0x811C_9DC5, |h, b| {
+        (h ^ u32::from(b)).wrapping_mul(0x0100_0193)
+    })
 }
 
 /// Pack up to four alphabet indices into a key (spec section 2.6).
@@ -86,7 +98,8 @@ pub fn context_of(key: u32) -> u32 {
 /// Serialize a model.
 pub fn encode(m: &ModelData) -> Vec<u8> {
     let alphabet = m.lang.alphabet();
-    let mut out = Vec::with_capacity(32 + 8 * m.ngrams.len() + 12 * m.contexts.len());
+    let mut out =
+        Vec::with_capacity(48 + 8 * m.ngrams.len() + 12 * m.contexts.len() + 8 * m.words.len());
     out.extend_from_slice(&MAGIC);
     out.extend_from_slice(&VERSION.to_le_bytes());
     out.push(m.order);
@@ -107,6 +120,12 @@ pub fn encode(m: &ModelData) -> Vec<u8> {
         out.extend_from_slice(&total.to_le_bytes());
         out.extend_from_slice(&types.to_le_bytes());
     }
+    out.extend_from_slice(&m.word_total.to_le_bytes());
+    out.extend_from_slice(&(m.words.len() as u32).to_le_bytes());
+    for &(hash, count) in &m.words {
+        out.extend_from_slice(&hash.to_le_bytes());
+        out.extend_from_slice(&count.to_le_bytes());
+    }
     let crc = crc32(&out);
     out.extend_from_slice(&crc.to_le_bytes());
     out
@@ -123,7 +142,7 @@ pub fn decode(b: &[u8]) -> Result<ModelData, ModelError> {
     let (body, crc) = b.split_at(b.len() - 4);
     let mut r = Reader { b: body, pos: 4 };
     let version = r.u16()?;
-    if version != VERSION {
+    if version != 1 && version != 2 {
         return Err(ModelError::UnsupportedVersion(version));
     }
     if crc32(body).to_le_bytes() != crc {
@@ -164,6 +183,15 @@ pub fn decode(b: &[u8]) -> Result<ModelData, ModelError> {
     for _ in 0..n {
         contexts.push((r.u32()?, r.u32()?, r.u32()?));
     }
+    let (mut words, mut word_total) = (Vec::new(), 0);
+    if version >= 2 {
+        word_total = u64::from_le_bytes(r.take::<8>()?);
+        let n = r.u32()? as usize;
+        words.reserve(n.min(r.remaining() / 8));
+        for _ in 0..n {
+            words.push((r.u32()?, r.u32()?));
+        }
+    }
     if r.remaining() != 0 {
         return Err(ModelError::Truncated);
     }
@@ -182,7 +210,8 @@ pub fn decode(b: &[u8]) -> Result<ModelData, ModelError> {
         && ngrams.iter().all(|&(k, _)| ok_key(k, 1, order));
     let sorted_contexts = contexts.windows(2).all(|w| w[0].0 < w[1].0)
         && contexts.iter().all(|&(k, _, _)| ok_key(k, 0, order - 1));
-    if !sorted_ngrams || !sorted_contexts {
+    let sorted_words = words.windows(2).all(|w| w[0].0 < w[1].0);
+    if !sorted_ngrams || !sorted_contexts || !sorted_words {
         return Err(ModelError::BadTable);
     }
 
@@ -192,6 +221,8 @@ pub fn decode(b: &[u8]) -> Result<ModelData, ModelError> {
         h,
         ngrams,
         contexts,
+        words,
+        word_total,
     })
 }
 
@@ -271,7 +302,27 @@ mod tests {
             h: -3.25,
             ngrams: vec![(pack_key(&[3]), 7), (pack_key(&[0, 3]), 2)],
             contexts: vec![(pack_key(&[]), 9, 1), (pack_key(&[0]), 2, 1)],
+            words: vec![(word_hash("در"), 50), (word_hash("از"), 40)],
+            word_total: 1000,
         }
+        .with_sorted_words()
+    }
+
+    impl ModelData {
+        fn with_sorted_words(mut self) -> Self {
+            self.words.sort_unstable();
+            self
+        }
+    }
+
+    /// The version 1 encoding of `m` (no word table).
+    fn encode_v1(m: &ModelData) -> Vec<u8> {
+        let v2 = encode(m);
+        let words_len = 8 + 4 + 8 * m.words.len();
+        with_body(v2, |b| {
+            b.truncate(b.len() - words_len);
+            b[4..6].copy_from_slice(&1u16.to_le_bytes());
+        })
     }
 
     #[test]
@@ -310,10 +361,29 @@ mod tests {
     }
 
     #[test]
+    fn word_hash_is_fnv1a() {
+        assert_eq!(word_hash(""), 0x811C_9DC5);
+        assert_eq!(word_hash("a"), 0xE40C_292C);
+        assert_ne!(word_hash("در"), word_hash("رد"));
+    }
+
+    #[test]
+    fn reads_version_1() {
+        let m = sample();
+        let back = decode(&encode_v1(&m)).unwrap();
+        assert_eq!(back.ngrams, m.ngrams);
+        assert_eq!(back.contexts, m.contexts);
+        assert!(back.words.is_empty());
+        assert_eq!(back.word_total, 0);
+    }
+
+    #[test]
     fn rejects_bad_version() {
         let mut bytes = encode(&sample());
-        bytes[4] = 2;
-        assert_eq!(decode(&bytes), Err(ModelError::UnsupportedVersion(2)));
+        bytes[4] = 3;
+        assert_eq!(decode(&bytes), Err(ModelError::UnsupportedVersion(3)));
+        bytes[4] = 0;
+        assert_eq!(decode(&bytes), Err(ModelError::UnsupportedVersion(0)));
     }
 
     #[test]
@@ -360,20 +430,27 @@ mod tests {
         let mut m = sample();
         m.ngrams.push((pack_key(&[60]), 1));
         assert_eq!(decode(&encode(&m)), Err(ModelError::BadTable));
+        let mut m = sample();
+        m.words.reverse();
+        assert_eq!(decode(&encode(&m)), Err(ModelError::BadTable));
     }
 
     #[test]
     fn huge_counts_do_not_allocate() {
-        // n_ngrams claims u32::MAX entries; decoding must fail, not abort.
+        // A table length of u32::MAX must fail to decode, not abort.
         let m = ModelData {
             ngrams: vec![],
             contexts: vec![],
+            words: vec![],
             ..sample()
         };
-        let bytes = with_body(encode(&m), |b| {
-            let n = b.len();
-            b[n - 8..n - 4].copy_from_slice(&u32::MAX.to_le_bytes());
-        });
-        assert_eq!(decode(&bytes), Err(ModelError::Truncated));
+        // Body tail: n_ngrams u32, n_contexts u32, word_total u64, n_words u32.
+        for at in [20, 16, 4] {
+            let bytes = with_body(encode(&m), |b| {
+                let n = b.len();
+                b[n - at..n - at + 4].copy_from_slice(&u32::MAX.to_le_bytes());
+            });
+            assert_eq!(decode(&bytes), Err(ModelError::Truncated), "at {at}");
+        }
     }
 }

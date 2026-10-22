@@ -7,7 +7,7 @@ use std::time::{Duration, Instant};
 use lf_core::{
     build_words, render, Candidate, KeyPress, LastWordScorer, Layout, LayoutId, SplitScorer,
 };
-use lf_lang::{Language, LanguageModel, NgramScorer};
+use lf_lang::{FrequencyBonus, Language, LanguageModel, NgramScorer};
 use rand::rngs::StdRng;
 use rand::{Rng, SeedableRng};
 
@@ -306,11 +306,12 @@ pub fn run(
     hard: &Path,
     kind: ScorerKind,
     models: Option<&Path>,
+    bonus: FrequencyBonus,
     show_failures: usize,
 ) -> Result<(), String> {
     let scorer: Box<dyn SplitScorer> = match (kind, models) {
-        (ScorerKind::Ngram, None) => Box::new(lf_lang::default_scorer()),
-        (ScorerKind::Ngram, Some(dir)) => Box::new(load_scorer(dir)?),
+        (ScorerKind::Ngram, None) => Box::new(lf_lang::default_scorer().with_bonus(bonus)),
+        (ScorerKind::Ngram, Some(dir)) => Box::new(load_scorer(dir)?.with_bonus(bonus)),
         (ScorerKind::Last, _) => Box::new(LastWordScorer),
     };
     let cases = load_cases(cases, false)?;
@@ -356,7 +357,18 @@ pub fn run(
         ScorerKind::Last => "last",
     };
     println!("scorer: {name:<9} cases: {}", all.n);
-    println!("overall exact-split accuracy:   {}", all.pct());
+    if let ScorerKind::Ngram = kind {
+        println!(
+            "word bonus      alpha {} cap {} floor {} ppm",
+            bonus.alpha, bonus.cap, bonus.floor_ppm
+        );
+    }
+    println!(
+        "overall exact-split accuracy:   {}  ({}/{})",
+        all.pct(),
+        all.ok,
+        all.n
+    );
     println!("by direction    us→ir {}   ir→us {}", us.pct(), ir.pct());
     let ks: Vec<String> = by_k
         .iter()

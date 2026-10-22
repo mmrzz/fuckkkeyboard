@@ -1,0 +1,8 @@
+1	!	50
+2	the	900
+3	The	100
+4	on the	300
+5	meeting	40
+6	NV	2
+7	café	30
+8	42	70

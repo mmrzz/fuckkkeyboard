@@ -8,17 +8,81 @@ use crate::patterns::is_pinned;
 /// LLR given to pinned words, so they are never converted.
 pub const PINNED_LLR: f64 = -50.0;
 
+/// Bonus added to a word's side when the exact normalized word is in that
+/// language's frequent-word list (version 2 models):
+///
+/// `min(cap, alpha * max(0, log2(ppm / floor_ppm)))`
+///
+/// Being log-scaled and capped, a word barely in the list (English `hc`,
+/// about 2 per million) gets almost nothing, while a very common word
+/// (Persian `از`, about 27,000 per million) gets the full cap.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct FrequencyBonus {
+    /// Bits of bonus per doubling of frequency above `floor_ppm`.
+    pub alpha: f64,
+    /// Largest bonus, in bits.
+    pub cap: f64,
+    /// Frequency (per million tokens) that earns no bonus.
+    pub floor_ppm: f64,
+}
+
+impl FrequencyBonus {
+    /// No bonus at all: the plain spec 2.1 LLR.
+    pub const OFF: FrequencyBonus = FrequencyBonus {
+        alpha: 0.0,
+        cap: 0.0,
+        floor_ppm: 1.0,
+    };
+
+    /// The bonus for a word with frequency `ppm`, or 0 if it is not listed.
+    pub fn bits(&self, ppm: Option<f64>) -> f64 {
+        match ppm {
+            Some(ppm) if ppm > self.floor_ppm => {
+                (self.alpha * (ppm / self.floor_ppm).log2()).min(self.cap)
+            }
+            _ => 0.0,
+        }
+    }
+}
+
+impl Default for FrequencyBonus {
+    /// Values tuned on the benchmark (see BENCHMARK.md).
+    fn default() -> Self {
+        FrequencyBonus {
+            alpha: 1.5,
+            cap: 4.0,
+            floor_ppm: 2.0,
+        }
+    }
+}
+
 /// Chooses the split with per-word log-likelihood ratios from character
 /// models, one per layout.
 #[derive(Debug, Clone)]
 pub struct NgramScorer {
     models: Vec<(LayoutId, LanguageModel)>,
+    bonus: FrequencyBonus,
 }
 
 impl NgramScorer {
-    /// Build a scorer from `(layout, model of the language typed in it)` pairs.
+    /// Build a scorer from `(layout, model of the language typed in it)` pairs,
+    /// with the default frequency bonus.
     pub fn new(models: Vec<(LayoutId, LanguageModel)>) -> Self {
-        NgramScorer { models }
+        NgramScorer {
+            models,
+            bonus: FrequencyBonus::default(),
+        }
+    }
+
+    /// Use a different frequency bonus (for tuning).
+    pub fn with_bonus(mut self, bonus: FrequencyBonus) -> Self {
+        self.bonus = bonus;
+        self
+    }
+
+    /// The frequency bonus in use.
+    pub fn bonus(&self) -> FrequencyBonus {
+        self.bonus
     }
 
     /// The model for a layout, if any.
@@ -37,7 +101,7 @@ impl NgramScorer {
         c.words
             .iter()
             .map(|w| {
-                if is_pinned(&w.text_from) {
+                if is_pinned(&w.text_from, &w.text_to, b.language()) {
                     return PINNED_LLR;
                 }
                 let from = a.language().normalize(&w.text_from);
@@ -47,17 +111,18 @@ impl NgramScorer {
                 if from.is_empty() && to.is_empty() {
                     return 0.0;
                 }
-                calibrated(b, &to) - calibrated(a, &from)
+                self.side(b, &to) - self.side(a, &from)
             })
             .collect()
     }
-}
 
-/// `log2 P(word) - n * h`: how much likelier the word is than an average
-/// word of its length in this language.
-fn calibrated(m: &LanguageModel, normalized: &str) -> f64 {
-    let n = normalized.chars().count() + 1;
-    m.word_log2prob(normalized) - n as f64 * f64::from(m.h())
+    /// One side of the LLR: `log2 P(word) - n * h`, how much likelier the
+    /// word is than an average word of its length, plus the frequency bonus.
+    fn side(&self, m: &LanguageModel, normalized: &str) -> f64 {
+        let n = normalized.chars().count() + 1;
+        m.word_log2prob(normalized) - n as f64 * f64::from(m.h())
+            + self.bonus.bits(m.word_ppm(normalized))
+    }
 }
 
 /// Index of the first word to convert, given per-word LLRs (spec 2.2).
@@ -223,6 +288,42 @@ mod tests {
         };
         assert_eq!(s.word_llrs(&c), vec![0.0; 3]);
         assert_eq!(s.first_wrong_word(&c), Some(2));
+    }
+
+    #[test]
+    fn frequency_bonus_is_log_scaled_and_capped() {
+        let b = FrequencyBonus {
+            alpha: 1.0,
+            cap: 4.0,
+            floor_ppm: 2.0,
+        };
+        assert_eq!(b.bits(None), 0.0);
+        assert_eq!(b.bits(Some(1.0)), 0.0);
+        assert_eq!(b.bits(Some(2.0)), 0.0);
+        assert!((b.bits(Some(8.0)) - 2.0).abs() < 1e-12);
+        assert_eq!(b.bits(Some(27_000.0)), 4.0);
+        assert_eq!(FrequencyBonus::OFF.bits(Some(27_000.0)), 0.0);
+    }
+
+    #[test]
+    fn listed_words_get_the_bonus_on_their_side() {
+        let (s, lat, fa) = setup();
+        let words = [word("dab", "داب")];
+        let c = Candidate {
+            words: &words,
+            from: &lat,
+            to: &fa,
+        };
+        let plain = s.clone().with_bonus(FrequencyBonus::OFF).word_llrs(&c)[0];
+        // List "داب" as very frequent in the Persian model.
+        let mut models = s.models.clone();
+        let fa_model = &mut models[1].1;
+        let mut data = fa_model.data().clone();
+        data.words = vec![(crate::format::word_hash("داب"), 1000)];
+        data.word_total = 1000;
+        *fa_model = LanguageModel::from_data(data);
+        let boosted = NgramScorer::new(models).word_llrs(&c)[0];
+        assert!((boosted - plain - FrequencyBonus::default().cap).abs() < 1e-9);
     }
 
     #[test]

@@ -9,7 +9,7 @@ use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
-use lf_lang::Language;
+use lf_lang::{FrequencyBonus, Language};
 
 #[derive(Parser)]
 #[command(
@@ -58,6 +58,12 @@ enum Cmd {
         /// Fraction of lines held out (from the end) to measure h.
         #[arg(long, default_value_t = 0.02)]
         heldout: f64,
+        /// Folder of Leipzig *-words.txt files; adds a frequent-word list.
+        #[arg(long)]
+        words: Option<PathBuf>,
+        /// Size of the frequent-word list.
+        #[arg(long, default_value_t = 20_000)]
+        top_words: usize,
     },
     /// Generate synthetic benchmark cases from held-out sentences.
     GenBench {
@@ -94,6 +100,15 @@ enum Cmd {
         /// Folder with en.lfng and fa.lfng to use instead of the embedded models.
         #[arg(long)]
         models: Option<PathBuf>,
+        /// Word-frequency bonus: bits per doubling above the floor (0 = off).
+        #[arg(long, default_value_t = FrequencyBonus::default().alpha)]
+        alpha: f64,
+        /// Word-frequency bonus: largest bonus in bits.
+        #[arg(long, default_value_t = FrequencyBonus::default().cap)]
+        cap: f64,
+        /// Word-frequency bonus: frequency (per million) that earns nothing.
+        #[arg(long, default_value_t = FrequencyBonus::default().floor_ppm)]
+        floor_ppm: f64,
         /// Print the first N synthetic cases the scorer gets wrong.
         #[arg(long, default_value_t = 0)]
         failures: usize,
@@ -124,6 +139,8 @@ fn main() -> ExitCode {
             order,
             prune,
             heldout,
+            words,
+            top_words,
         } => train::run(
             lang,
             &input,
@@ -132,6 +149,8 @@ fn main() -> ExitCode {
                 order,
                 prune,
                 heldout,
+                words,
+                top_words,
             },
         ),
         Cmd::GenBench {
@@ -147,8 +166,22 @@ fn main() -> ExitCode {
             hard,
             scorer,
             models,
+            alpha,
+            cap,
+            floor_ppm,
             failures,
-        } => bench::run(&cases, &hard, scorer, models.as_deref(), failures),
+        } => bench::run(
+            &cases,
+            &hard,
+            scorer,
+            models.as_deref(),
+            FrequencyBonus {
+                alpha,
+                cap,
+                floor_ppm,
+            },
+            failures,
+        ),
         Cmd::Inspect { model } => train::inspect(&model),
     };
     match result {

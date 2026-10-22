@@ -15,6 +15,48 @@ pub struct Settings {
     pub prune: u32,
     /// Fraction of lines (from the end) held out for measuring `h`.
     pub heldout: f64,
+    /// Folder of Leipzig `*-words.txt` files for the frequent-word list.
+    pub words: Option<std::path::PathBuf>,
+    /// Size of the frequent-word list.
+    pub top_words: usize,
+}
+
+/// Read every `*-words.txt` in `dir` (Leipzig `id<TAB>word<TAB>count`) and
+/// return `(word, count)` for single-word entries.
+pub fn read_word_counts(dir: &Path) -> Result<Vec<(String, u64)>, String> {
+    let mut files: Vec<_> = fs::read_dir(dir)
+        .map_err(|e| format!("{}: {e}", dir.display()))?
+        .filter_map(|e| e.ok().map(|e| e.path()))
+        .filter(|p| {
+            p.file_name()
+                .and_then(|n| n.to_str())
+                .is_some_and(|n| n.ends_with("-words.txt"))
+        })
+        .collect();
+    files.sort();
+    if files.is_empty() {
+        return Err(format!("no *-words.txt files in {}", dir.display()));
+    }
+    let mut entries = Vec::new();
+    for f in &files {
+        let bytes = fs::read(f).map_err(|e| format!("{}: {e}", f.display()))?;
+        for line in String::from_utf8_lossy(&bytes).lines() {
+            let mut cols = line.trim_end_matches('\r').split('\t');
+            let (Some(_id), Some(word), Some(count), None) =
+                (cols.next(), cols.next(), cols.next(), cols.next())
+            else {
+                continue;
+            };
+            // Multi-word entries ("on the") are not words a user types.
+            if word.contains(' ') {
+                continue;
+            }
+            if let Ok(n) = count.parse::<u64>() {
+                entries.push((word.to_owned(), n));
+            }
+        }
+    }
+    Ok(entries)
 }
 
 /// Split cleaned lines into (training, held-out): the held-out part is the
@@ -73,6 +115,16 @@ pub fn build(lang: Language, lines: &[String], s: &Settings) -> Result<LanguageM
         return Err("no held-out words".into());
     }
     data.h = (log2p / chars as f64) as f32;
+    if let Some(dir) = &s.words {
+        let entries = read_word_counts(dir)?;
+        let (table, total) = model::top_words(
+            lang,
+            entries.iter().map(|(w, n)| (w.as_str(), *n)),
+            s.top_words,
+        );
+        data.words = table;
+        data.word_total = total;
+    }
     Ok(LanguageModel::from_data(data))
 }
 
@@ -86,7 +138,7 @@ pub fn run(lang: Language, input: &Path, out: &Path, s: &Settings) -> Result<(),
     }
     fs::write(out, &bytes).map_err(|e| format!("{}: {e}", out.display()))?;
     println!(
-        "{}: order {} prune {} -> {} ({} bytes, {} n-grams, {} contexts), h = {:.4}",
+        "{}: order {} prune {} -> {} ({} bytes, {} n-grams, {} contexts, {} words), h = {:.4}",
         lang.code(),
         s.order,
         s.prune,
@@ -94,6 +146,7 @@ pub fn run(lang: Language, input: &Path, out: &Path, s: &Settings) -> Result<(),
         bytes.len(),
         m.data().ngrams.len(),
         m.data().contexts.len(),
+        m.data().words.len(),
         m.h()
     );
     Ok(())
@@ -120,6 +173,11 @@ pub fn inspect(path: &Path) -> Result<(), String> {
         println!("  order {len}   {n}");
     }
     println!("contexts    {}", d.contexts.len());
+    println!(
+        "words       {} (from {} tokens)",
+        d.words.len(),
+        d.word_total
+    );
     let mut top = d.contexts.clone();
     top.sort_by_key(|&(k, total, _)| (std::cmp::Reverse(total), k));
     println!("top contexts (context, C(h), T(h)):");
@@ -166,6 +224,8 @@ mod tests {
             order: 3,
             prune: 1,
             heldout: 0.25,
+            words: None,
+            top_words: 20_000,
         };
         let m = build(Language::En, &text, &s).unwrap();
         assert!(m.h() < 0.0 && m.h().is_finite());

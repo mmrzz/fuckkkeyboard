@@ -4,7 +4,9 @@
 use std::collections::HashMap;
 
 use crate::alphabet::{Language, END, PAD};
-use crate::format::{self, context_of, key_len, pack_key, ModelData, ModelError, MAX_ORDER};
+use crate::format::{
+    self, context_of, key_len, pack_key, word_hash, ModelData, ModelError, MAX_ORDER,
+};
 
 /// A parsed `.lfng` model.
 #[derive(Debug, Clone)]
@@ -75,6 +77,19 @@ impl LanguageModel {
             p = (f64::from(count) + f64::from(types) * p) / (f64::from(total) + f64::from(types));
         }
         p
+    }
+
+    /// Frequency of a normalized word in the model's word list, in
+    /// occurrences per million tokens. None if the word is not listed.
+    pub fn word_ppm(&self, normalized: &str) -> Option<f64> {
+        let words = &self.data.words;
+        if self.data.word_total == 0 || normalized.is_empty() {
+            return None;
+        }
+        let i = words
+            .binary_search_by_key(&word_hash(normalized), |&(h, _)| h)
+            .ok()?;
+        Some(f64::from(words[i].1) * 1e6 / self.data.word_total as f64)
     }
 
     fn ngram(&self, key: u32) -> u32 {
@@ -149,7 +164,51 @@ pub fn count<'a>(
         h: 0.0,
         ngrams,
         contexts,
+        words: Vec::new(),
+        word_total: 0,
     }
+}
+
+/// The `n` most frequent words as a version 2 word table: `(hash, count)`
+/// sorted by hash, plus the total token count.
+///
+/// Entries are normalized first and merged when they normalize alike
+/// (`NV` and `nv`). Entries with a letter outside the language (`café`,
+/// `fi` in a Persian list) or nothing left after normalization (`42`) are
+/// left out of both the list and the total. Ties in count go to the word that sorts
+/// first, so the output does not depend on input order. If two listed words
+/// share a hash, the more frequent one wins.
+pub fn top_words<'a>(
+    lang: Language,
+    entries: impl IntoIterator<Item = (&'a str, u64)>,
+    n: usize,
+) -> (Vec<(u32, u32)>, u64) {
+    let mut counts: HashMap<String, u64> = HashMap::new();
+    let mut total = 0u64;
+    let mut buf = [0u8; 4];
+    for (word, count) in entries {
+        let foreign = word
+            .chars()
+            .any(|c| c.is_alphabetic() && lang.normalize(c.encode_utf8(&mut buf)).is_empty());
+        let w = lang.normalize(word);
+        if foreign || w.is_empty() || count == 0 {
+            continue;
+        }
+        total = total.saturating_add(count);
+        let c = counts.entry(w).or_insert(0);
+        *c = c.saturating_add(count);
+    }
+    let mut ranked: Vec<(String, u64)> = counts.into_iter().collect();
+    ranked.sort_unstable_by(|a, b| b.1.cmp(&a.1).then_with(|| a.0.cmp(&b.0)));
+    ranked.truncate(n);
+    let mut table: Vec<(u32, u32)> = ranked
+        .iter()
+        .map(|(w, c)| (word_hash(w), u32::try_from(*c).unwrap_or(u32::MAX)))
+        .collect();
+    // Most frequent first within a hash, then keep the first of each hash.
+    table.sort_unstable_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(&a.1)));
+    table.dedup_by_key(|e| e.0);
+    (table, total)
 }
 
 #[cfg(test)]
@@ -256,6 +315,39 @@ mod tests {
         // Lower orders are never pruned.
         let low = |d: &ModelData| d.ngrams.iter().filter(|&&(k, _)| key_len(k) < 4).count();
         assert_eq!(low(&full), low(&pruned));
+    }
+
+    #[test]
+    fn top_words_ranks_merges_and_looks_up() {
+        let entries = [
+            ("The", 50),
+            ("the", 30),
+            ("NV", 2),
+            ("nv", 1),
+            ("cat", 10),
+            ("42", 99),
+            ("café", 70),
+        ];
+        let (table, total) = top_words(Language::En, entries, 2);
+        assert_eq!(total, 93);
+        assert_eq!(table.len(), 2);
+        let mut data = toy(4, 1).data().clone();
+        data.words = table;
+        data.word_total = total;
+        let m = LanguageModel::from_data(data);
+        assert!((m.word_ppm("the").unwrap() - 80.0 * 1e6 / 93.0).abs() < 1e-6);
+        assert!(m.word_ppm("cat").is_some());
+        assert_eq!(m.word_ppm("nv"), None);
+        assert_eq!(m.word_ppm(""), None);
+        // Version 1 models have no list.
+        assert_eq!(toy(4, 1).word_ppm("the"), None);
+    }
+
+    #[test]
+    fn top_words_is_order_independent() {
+        let a = [("b", 5), ("a", 5), ("c", 5)];
+        let b = [("c", 5), ("b", 5), ("a", 5)];
+        assert_eq!(top_words(Language::En, a, 2), top_words(Language::En, b, 2));
     }
 
     #[test]

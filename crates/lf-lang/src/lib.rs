@@ -11,7 +11,7 @@ pub mod scorer;
 pub use alphabet::Language;
 pub use format::ModelError;
 pub use model::LanguageModel;
-pub use scorer::NgramScorer;
+pub use scorer::{FrequencyBonus, NgramScorer};
 
 use lf_core::LayoutId;
 
