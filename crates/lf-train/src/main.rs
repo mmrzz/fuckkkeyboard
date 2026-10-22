@@ -1,6 +1,7 @@
 //! `lf-train`: offline tools to build language models and benchmark scorers.
 #![forbid(unsafe_code)]
 
+mod bench;
 mod prepare;
 mod train;
 
@@ -58,6 +59,39 @@ enum Cmd {
         #[arg(long, default_value_t = 0.02)]
         heldout: f64,
     },
+    /// Generate synthetic benchmark cases from held-out sentences.
+    GenBench {
+        /// Random seed.
+        #[arg(long, default_value_t = 42)]
+        seed: u64,
+        /// Number of cases.
+        #[arg(long, default_value_t = 4000)]
+        count: usize,
+        /// Output TSV.
+        #[arg(long)]
+        out: PathBuf,
+        /// Cleaned English corpus (its held-out tail is used).
+        #[arg(long, default_value = "data/clean/en.txt")]
+        en: PathBuf,
+        /// Cleaned Persian corpus (its held-out tail is used).
+        #[arg(long, default_value = "data/clean/fa.txt")]
+        fa: PathBuf,
+        /// Held-out fraction; must match the one used for training.
+        #[arg(long, default_value_t = 0.02)]
+        heldout: f64,
+    },
+    /// Run a scorer over the benchmark; fails below 95% or on a failed must case.
+    Bench {
+        /// Synthetic cases.
+        #[arg(long, default_value = "data/bench/cases.tsv")]
+        cases: PathBuf,
+        /// Hand-written hard cases.
+        #[arg(long, default_value = "data/hard_cases.tsv")]
+        hard: PathBuf,
+        /// Scorer to benchmark.
+        #[arg(long, value_enum, default_value_t = bench::ScorerKind::Ngram)]
+        scorer: bench::ScorerKind,
+    },
     /// Print a model's header, table sizes and top contexts.
     Inspect {
         /// The .lfng file.
@@ -94,6 +128,19 @@ fn main() -> ExitCode {
                 heldout,
             },
         ),
+        Cmd::GenBench {
+            seed,
+            count,
+            out,
+            en,
+            fa,
+            heldout,
+        } => bench::generate(&en, &fa, heldout, seed, count, &out),
+        Cmd::Bench {
+            cases,
+            hard,
+            scorer,
+        } => bench::run(&cases, &hard, scorer),
         Cmd::Inspect { model } => train::inspect(&model),
     };
     match result {
