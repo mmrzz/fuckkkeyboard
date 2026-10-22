@@ -2,8 +2,9 @@
 //! runtime, in one process.
 //!
 //! The backend is picked by target OS: Windows gets the real
-//! `WindowsBackend`; other systems run the mock backend and the UI shows a
-//! "preview" banner until their backends land.
+//! `WindowsBackend`; Linux gets `X11Backend` on an X11 session; everything
+//! else (Wayland, macOS) runs the mock backend and the UI shows a "preview"
+//! banner until those backends land.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
@@ -30,7 +31,35 @@ fn backend() -> (BackendFactory, bool) {
 }
 
 /// The backend for this OS, and whether it is the preview (mock) one.
-#[cfg(not(target_os = "windows"))]
+#[cfg(target_os = "linux")]
+fn backend() -> (BackendFactory, bool) {
+    use lf_platform::x11::X11Backend;
+    use lf_platform::{Backend, MockBackend};
+    match X11Backend::new() {
+        Ok(_) => {
+            // Each runtime start gets its own connection; if the X server
+            // vanished in between, fall back to the mock rather than panic.
+            let factory = || -> Box<dyn Backend> {
+                match X11Backend::new() {
+                    Ok(b) => Box::new(b),
+                    Err(e) => {
+                        log::error!("X11 backend unavailable: {e}");
+                        Box::new(MockBackend::us_ir())
+                    }
+                }
+            };
+            (Box::new(factory), false)
+        }
+        Err(e) => {
+            log::warn!("running the preview backend: {e}");
+            let mock = MockBackend::us_ir();
+            (Box::new(move || Box::new(mock.clone())), true)
+        }
+    }
+}
+
+/// The backend for this OS, and whether it is the preview (mock) one.
+#[cfg(not(any(target_os = "windows", target_os = "linux")))]
 fn backend() -> (BackendFactory, bool) {
     let mock = lf_platform::MockBackend::us_ir();
     (Box::new(move || Box::new(mock.clone())), true)
