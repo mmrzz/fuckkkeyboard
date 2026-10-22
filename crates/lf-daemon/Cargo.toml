@@ -16,3 +16,6 @@ lf-core.workspace = true
 lf-platform.workspace = true
 lf-runtime.workspace = true
 log = "0.4"
+
+[target.'cfg(target_os = "linux")'.dev-dependencies]
+x11rb = { version = "0.14.0", features = ["xtest"] }

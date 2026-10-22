@@ -645,6 +645,7 @@ dependencies = [
  "lf-platform",
  "lf-runtime",
  "log",
+ "x11rb",
 ]
 
 [[package]]
@@ -697,6 +698,14 @@ dependencies = [
  "lf-lang",
  "lf-layouts",
  "rand",
+]
+
+[[package]]
+name = "lf-x11-testfield"
+version = "0.1.0"
+dependencies = [
+ "x11rb",
+ "xkbcommon",
 ]
 
 [[package]]

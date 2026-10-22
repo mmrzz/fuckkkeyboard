@@ -19,6 +19,9 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      - name: X11 libraries (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev xkb-data
       - name: Format
         run: cargo fmt --all -- --check
       - name: Clippy
@@ -29,3 +32,14 @@ jobs:
         run: cargo test --release -p lf-lang -- --ignored
       - name: Benchmark gate
         run: cargo run --release -p lf-train -- bench
+
+  x11:
+    # End-to-end X11 backend test on a private Xvfb server (Phase 4 gate).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Xvfb and XKB tools
+        run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev xkb-data xvfb x11-xkb-utils
+      - name: Xvfb integration test
+        run: cargo test -p lf-daemon --test xvfb -- --ignored --nocapture
