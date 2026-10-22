@@ -27,13 +27,33 @@
     }
   },
   "bundle": {
-    "active": false,
+    "active": true,
+    "targets": "all",
+    "publisher": "Layout Fixer",
+    "copyright": "MIT License",
+    "category": "Utility",
+    "shortDescription": "Fixes text typed in the wrong keyboard layout",
+    "longDescription": "Type in the wrong keyboard layout, then type the trigger: Layout Fixer replaces the text with what you meant and switches the layout. Runs in the tray. Typed text stays in memory and is never saved or sent anywhere.",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "wix": {
+        "language": "en-US"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false
+      }
+    },
+    "linux": {
+      "deb": {
+        "section": "utils"
+      }
+    }
   }
 }
