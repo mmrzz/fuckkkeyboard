@@ -1,0 +1,18 @@
+[package]
+name = "lf-daemon"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "lf-daemon"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive"] }
+ctrlc = "3.5.2"
+env_logger = "0.11.11"
+lf-core.workspace = true
+lf-platform.workspace = true
+lf-runtime.workspace = true
+log = "0.4"
