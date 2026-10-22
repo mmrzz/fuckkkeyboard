@@ -169,6 +169,10 @@ pub fn klid_for_hkl(hkl: usize, layout_id_lookup: impl Fn(u16) -> Option<u32>) -
     if device == 0 {
         return u32::from(lang);
     }
+    if device & 0xF000 == 0xE000 {
+        // Input method editors: the KLID is the whole HKL, e.g. E0010804.
+        return (u32::from(device) << 16) | u32::from(lang);
+    }
     u32::from(device)
 }
 
@@ -335,6 +339,10 @@ mod tests {
         let persian_std = |id: u16| (id == 0x03A).then_some(0x0005_0429);
         assert_eq!(klid_for_hkl(hkl64, persian_std), 0x0005_0429);
         assert_eq!(langid_for_hkl(hkl64), 0x0429);
+        // A Chinese input method.
+        assert_eq!(klid_for_hkl(0xE001_0804, none), 0xE001_0804);
+        // UK keys under the en-US language.
+        assert_eq!(klid_for_hkl(0x0809_0409, none), 0x0809);
     }
 
     #[test]
