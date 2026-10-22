@@ -60,6 +60,11 @@ fn foreground() -> Option<(HWND, u32, u32)> {
     (thread != 0).then_some((hwnd, thread, pid))
 }
 
+/// The foreground window, as an integer handle.
+pub(super) fn foreground_window() -> Option<isize> {
+    foreground().map(|(hwnd, _, _)| hwnd.0 as isize)
+}
+
 /// The app id (lowercase exe name) of the foreground window.
 pub(super) fn foreground_app() -> Option<String> {
     let (_, _, pid) = foreground()?;

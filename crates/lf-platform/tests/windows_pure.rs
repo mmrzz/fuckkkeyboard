@@ -13,3 +13,7 @@ mod keymap;
 #[allow(dead_code)]
 #[path = "../src/windows/translate.rs"]
 mod translate;
+
+#[allow(dead_code)]
+#[path = "../src/windows/plan.rs"]
+mod plan;

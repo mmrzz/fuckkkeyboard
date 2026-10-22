@@ -9,6 +9,8 @@
 //!   event hook, on their own thread with a message loop.
 //! - `tracking`: the foreground app, its input language and the installed
 //!   layouts.
+//! - [`plan`]: engine commands → synthetic input steps (pure).
+//! - `inject`: sending the strokes and requesting layout switches.
 //!
 //! Known limitations: windows running elevated are invisible to a
 //! non-elevated Layout Fixer; UWP apps report their host process
@@ -16,7 +18,9 @@
 #![allow(unsafe_code)]
 
 mod capture;
+mod inject;
 pub mod keymap;
+pub mod plan;
 mod tracking;
 pub mod translate;
 
@@ -29,6 +33,7 @@ use lf_core::{Command, InputEvent, LayoutId, ResetReason};
 
 use crate::{AppId, Backend, BackendError, LayoutInfo, PlatformEvent};
 use capture::{HookThread, Raw, Stamped};
+use plan::Step;
 use tracking::WinLayout;
 use translate::Translator;
 
@@ -139,12 +144,27 @@ impl Backend for WindowsBackend {
     }
 
     fn execute(&mut self, cmds: &[Command]) -> Result<(), BackendError> {
-        if cmds.is_empty() {
-            return Ok(());
+        for step in plan::plan(cmds) {
+            match step {
+                Step::Type(strokes) => inject::send_strokes(&strokes)?,
+                Step::SetLayout(id) => {
+                    let hkl = self
+                        .shared()
+                        .layouts
+                        .iter()
+                        .find(|l| l.info.layout.id == id)
+                        .map(|l| l.hkl)
+                        .ok_or_else(|| {
+                            BackendError::LayoutSwitch(format!("layout {id} is not installed"))
+                        })?;
+                    let hwnd = tracking::foreground_window()
+                        .ok_or_else(|| BackendError::LayoutSwitch("no foreground window".into()))?;
+                    inject::request_layout(hwnd, hkl)?;
+                    self.shared().assumed = Some(id);
+                }
+            }
         }
-        Err(BackendError::Unsupported(
-            "carrying out fixes is not implemented yet".into(),
-        ))
+        Ok(())
     }
 
     fn current_layout(&self) -> Result<LayoutId, BackendError> {
