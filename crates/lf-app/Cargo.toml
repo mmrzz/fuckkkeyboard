@@ -1,0 +1,22 @@
+[package]
+name = "lf-app"
+description = "Layout Fixer: tray app and settings window"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+lf-core.workspace = true
+lf-platform.workspace = true
+lf-runtime.workspace = true
+directories = "6"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-autostart = "2"
+tauri-plugin-single-instance = "2"
+thiserror = "2.0.21"
+toml = "1"
