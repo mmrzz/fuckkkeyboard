@@ -5,7 +5,10 @@
 pub mod alphabet;
 pub mod format;
 pub mod model;
+pub mod patterns;
+pub mod scorer;
 
 pub use alphabet::Language;
 pub use format::ModelError;
 pub use model::LanguageModel;
+pub use scorer::NgramScorer;
