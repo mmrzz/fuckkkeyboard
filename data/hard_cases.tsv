@@ -1,0 +1,24 @@
+# layout_from	typed_text	expected_index	must	note
+# Every row was checked with lf-cli keys / lf-cli simulate --scorer all.
+us	lvsd	0	yes	مرسی, one word
+us	thanks lvsd	1	yes	
+us	]x,vd	0	yes	چطوری
+us	I'm at work nhvl ldhl	3	yes	دارم میام
+us	npm install ;hv	2	yes	tech words stay English
+us	check https://x.com ;hv	2	yes	URL pinned
+us	email me@site.com lvsd	2	yes	email pinned
+us	my_var lvsd	1	yes	underscore pinned
+us	getUserName lvsd	1	yes	camelCase pinned
+ir	سلام پثثفهدل	1	yes	"meeting" typed in ir
+ir	باید یثحمخغ	1	yes	"deploy" typed in ir
+ir	خن	0	yes	"ok", single word
+us	salam lvsd	1	no	Finglish should stay
+us	merci lvsd	1	no	loanword
+us	Hello lvsd	1	yes	capitalized English stays
+us	123 lvsd	1	yes	number stays (ties go to the later word)
+us	open www.google.com ;hv	2	yes	www pinned
+us	src/main.rs lvsd	1	yes	path pinned
+us	hlv,c ;hv nhvl	0	yes	امروز کار دارم, all Persian
+us	ok ofv ldnil	1	no	خبر میدهم after a short English word
+ir	ممنون سثث غخع فخپخققخص	1	no	"see you tomorrow" typed in ir
+ir	زاثزن	0	no	"check", single word
