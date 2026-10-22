@@ -12,4 +12,3 @@ lf-core = { path = "crates/lf-core" }
 lf-lang = { path = "crates/lf-lang" }
 lf-layouts = { path = "crates/lf-layouts" }
 lf-platform = { path = "crates/lf-platform" }
-lf-runtime = { path = "crates/lf-runtime" }

@@ -8,3 +8,9 @@ license.workspace = true
 lf-core.workspace = true
 lf-layouts.workspace = true
 thiserror = "2.0.21"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+log = "0.4"
+x11rb = { version = "0.14.0", features = ["xinput", "xkb", "xtest"] }
+xkbcommon = { version = "0.9.0", default-features = false }
+zbus = { version = "5", default-features = false, features = ["blocking-api", "async-io"] }
