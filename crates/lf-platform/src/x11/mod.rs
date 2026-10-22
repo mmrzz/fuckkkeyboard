@@ -6,6 +6,8 @@
 //! [`BackendError::Unsupported`] so the app can fall back to the preview.
 
 pub mod keycodes;
+#[allow(dead_code)] // wired into the backend by the capture task
+mod keymap;
 
 use x11rb::connection::RequestConnection;
 use x11rb::protocol::{xinput, xkb, xtest};
